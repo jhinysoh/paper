@@ -1,0 +1,143 @@
+/* 전체 */
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
+body {
+	display:flex;
+	flex-wrap:wrap;
+	height:98vh;
+	font-family:'Nanum Gothic';
+	background-color:black;
+	}
+
+.paper {
+	min-width:600px;
+	max-width:800px;
+	min-height:1000px;
+	padding:20px;
+	margin:0 2px 2px 0;
+	border-radius:2px;
+	background-image:url("../img/20200913092856.png");
+	}
+.box {
+	font-size:15px;
+    border:1px solid black;
+    border-radius:6px;
+	margin:0 10px;
+	}
+.box_top {
+	background-color:black;
+	color:#E6E6E6;
+	font-weight:bold;
+	text-align:center;
+	padding:5px 10px;
+	margin:-1px;
+	border-radius:5px 5px 0 0;
+	}
+.box_content { padding:5px }
+
+
+/* 텍스트 */
+
+h1, h2, h3 {
+	display:inline;
+	font:bold 28px Kaushan Script;
+	text-shadow:1px 1px 1px #A4A4A4;
+	margin:0;
+	padding:0
+	}
+h2 { font-size:22px }
+h3 {
+	font-size:24px;
+	color:grey;
+	text-shadow:none
+	}
+.annotation1 {
+	font:italic 12px bold;
+	color:grey;
+	}
+.annotation2 { font-size:12px }
+ul { margin-left:-10px }
+hr {
+	height:0;
+	border:1px solid #BDBDBD;
+	margin:14px
+	}
+.bar {
+	width:0;
+	border:1px solid #BDBDBD;
+	margin:14px
+	}
+
+
+/* 입력 */
+
+input {
+	border:0px;
+	border-bottom:1px solid grey;
+	border-radius:0;
+	background-color:transparent;
+	text-align:center;
+	font-family:'Nanum Gothic'
+	}
+input:focus	{
+	outline:none;
+	border-bottom:1px solid #01A9DB
+	}
+.input_s { width:10% }
+.input_m { width:20% }
+.input_l { width:30% }
+
+.box_input {
+	font-size:13px;
+	font-weight:bold;
+	color:#E6E6E6;
+	width:60%;
+	}
+
+button {
+	border:1px solid #2E2E2E; 
+	border-radius:3px;
+	padding:2px;
+	margin:1px 1px 0 0;
+	background-color:transparent;
+	font:bold 12px 'Nanum Gothic';
+	color:#2E2E2E;
+	}
+button:hover {
+	background-color:#2E2E2E;
+	color:#E6E6E6
+	}
+button:focus {
+	background-color:#2E2E2E;
+	color:#E6E6E6
+	}
+.btn_s { padding:3px }
+.btn_m { padding:6px }
+.btn_l {
+	font-size:14px;
+	padding:8px
+	}
+
+
+/* 위치 */
+
+.flex_row {
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	}
+.flex_column {
+	display:flex;
+	flex-direction:column;
+	}
+.flex1 { flex:1 }
+.flex2 { flex:2 }
+.flex3 { flex:3 }
+.flex4 { flex:4 }
+.flex_center { align-items:center }
+.right { text-align:right }
+.center { text-align:center }
+
