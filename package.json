@@ -1,0 +1,22 @@
+{
+  "name": "paper",
+  "version": "1.0.0",
+  "description": "simplist one for practitioners",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhinysoh/paper.git"
+  },
+  "author": "jhinysoh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhinysoh/paper/issues"
+  },
+  "homepage": "https://github.com/jhinysoh/paper#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
