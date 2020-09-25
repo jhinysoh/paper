@@ -15,8 +15,12 @@
   "bugs": {
     "url": "https://github.com/jhinysoh/paper/issues"
   },
-  "homepage": "https://github.com/jhinysoh/paper#readme",
+  "homepage": "https://jhinysoh.github.io/paper",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "script": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build"
   }
 }
