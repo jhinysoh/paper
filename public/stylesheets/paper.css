@@ -1,3 +1,12 @@
+.paper {
+	min-width:600px;
+	max-width:800px;
+	min-height:1000px;
+	padding:20px;
+	margin:0 2px 2px 0;
+	border-radius:2px;
+	background-image:url("../img/20200913092856.png");
+	}
 
 /* 페이퍼1 */
 
