@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="../css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/paper.css" type="text/css">
+	<script type="text/javascript" src="js/script.js"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/inline/ckeditor.js"></script>
+	<style>
+	#login {
+		width:300px;
+		background-color:white;
+		padding:10px;
+		margin:5px;
+		font-size:14px;
+		border-radius:2px
+		}
+	fieldset {
+		border:none
+		}
+	.input_login {
+		width:250px;
+		font-size:14px;
+		padding:4px;
+		margin:6px
+		}
+	.button_login {
+		width:100px;
+		font-size:14px
+		}
+	#login_banner {
+		width:100%;
+		background-color:#2e2e2e;
+		margin:-10px
+		}
+	.banner {
+		color:white
+		}
+	.w100 { width:100% }
+	body { background-color:grey }
+	.flex_center { justify-content:center }
+	</style>
+</head>
+
+
+
+<body>
+
+
+<div class="flex_column flex_center w100">
+<div id="login_banner" class="flex_row">
+	<form id="login">
+		<fieldset>
+			<div class="center">
+				<input type="text" class="input_login" placeholder="아이디"><br>
+				<input type="password" class="input_login" placeholder="비밀번호"><p>
+				<input type="checkbox" checked id="check_id">아이디저장</input><p>
+				<button type="submit" class="button_login">로그인</button>
+				<button type="submit" class="button_login">회원가입</button><p>
+				<div id="find_id">ID/PW 찾기</div>
+			</div>
+		</fieldset>
+	</form>
+	<div class="banner flex1 flex_row flex_center">
+		<blockqoute>
+			<h1>PAPER</h1>
+			<p>the Simplist one for all Vet...</p>
+		</blockqoute>
+	</div>
+</div>
+</div>
+
+</body>
+
+</html>
