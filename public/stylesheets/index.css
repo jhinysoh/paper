@@ -1,0 +1,32 @@
+#login {
+	width:300px;
+	background-color:white;
+	padding:10px;
+	margin:5px;
+	font-size:14px;
+	border-radius:2px
+	}
+fieldset {
+	border:none
+	}
+.input_login {
+	width:250px;
+	font-size:14px;
+	padding:4px;
+	margin:6px
+	}
+.button_login {
+	width:100px;
+	font-size:14px
+	}
+#login_banner {
+	width:100%;
+	background-color:#2e2e2e;
+	margin:-10px
+	}
+.banner {
+	color:white
+	}
+.w100 { width:100% }
+	body { background-color:grey }
+.flex_center { justify-content:center }
