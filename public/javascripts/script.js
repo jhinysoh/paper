@@ -1,7 +1,11 @@
 window.onload = function(){
-    InlineEditor.create( document.querySelector( '#subjective' ), {
-		toolbar: [ 'Heading', 'bold', 'italic', 'BlockQuote',
-		'bulletedList', 'numberedList', 'blockQuote', 'Indent' ]
-    } )
-    .catch( error => { console.log( error ); } );
+
+	// S 위지윅에디터(CKeditor)
+	InlineEditor.create( document.querySelector( '#subjective' ), {
+		toolbar: [ 'Heading', 'highlight', 'bold', 'italic', 'underline', 'strikethrough', 'BlockQuote', '|',
+		'bulletedList', 'numberedList', 'Indent', 'outdent', 'insertTable', '|', 'undo', 'redo' ]
+	} )
+	.catch( error => { console.log( error ); } );
+
+
 }
