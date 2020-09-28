@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
-//- GET 회워가입
+//- GET 회원가입
 router.get('/signup', function(req, res, next) {
   res.render('signup');
 });
