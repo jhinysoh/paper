@@ -1,26 +1,23 @@
-doctype html
-html
-	head
-		title PAPER
+extends layout
 
-	body
-		.flex_column.flex_center.w100
-			#login_banner.flex_row
-				form#login
-					fieldset
-						.center
-							input(type="text",placeholder="아이디").input_login
-							br
-							input(type="password",placeholder="비밀번호").input_login
-							p
-							input(type="checkbox",checked)#check_id
-							span 아이디저장
-							p
-							button(type="submit").button_login 로그인
-							button(type="submit").button_login 회원가입
-							p
-							#find_id ID/PW 찾기
-				.banner.flex1.flex_row.flex_center
-					blockqoute
-						h1 PAPER
-						p the Simplist one for all Vet...
+block content
+	.index_center
+		form#index_login
+			fieldset
+				.center
+				input(type="text",autofocus,placeholder="이메일").index_input
+				br
+				input(type="password",placeholder="비밀번호").index_input
+				p
+				input(type="checkbox",checked)#check_id
+				span 이메일저장
+				p
+				input(type="button",value="로그인").index_btn2
+				input(type="button",onclick="location.href='/signup'",value="회원가입").index_btn2
+				p
+				#find_id ID/PW 찾기
+		.index_side
+			blockqoute
+			h4 PAPER
+			br
+			h3 the Simple one for all Vet...

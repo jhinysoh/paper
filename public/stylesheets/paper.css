@@ -5,7 +5,6 @@
 	padding:20px;
 	margin:0 2px 2px 0;
 	border-radius:2px;
-	background-image:url("../img/20200913092856.png");
 	}
 
 /* 페이퍼1 */
@@ -51,7 +50,7 @@
 	border-radius:2px;
 	box-shadow:1px 1px 3px grey;
 	padding:20px;
-   margin-top:10px;
+  margin-top:10px;
 	overflow:auto;
 }
 
@@ -90,6 +89,5 @@
 /* 페이퍼3 */
 
 #p_tag {	width:200px	}
-	
-#vac_tag { width:200px }
 
+#vac_tag { width:200px }

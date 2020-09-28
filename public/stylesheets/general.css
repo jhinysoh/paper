@@ -1,16 +1,17 @@
-/* 전체 */
+/* 공통설정 */
 
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
 
 body {
-	display:flex;
-	flex-wrap:wrap;
-	height:98vh;
-	font-family:'Nanum Gothic';
-	background-color:black;
-	}
+	display: flex;
+	flex-wrap: wrap;
+	height: 98vh;
+	font-family: 'Nanum Gothic';
+	justify-content: center;
+	align-items: center
+}
 
 .box {
 	font-size:15px;
@@ -32,7 +33,7 @@ body {
 
 /* 텍스트 */
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
 	display:inline;
 	font:bold 28px Kaushan Script;
 	text-shadow:1px 1px 1px #A4A4A4;
@@ -45,6 +46,7 @@ h3 {
 	color:grey;
 	text-shadow:none
 	}
+h4 { font-size: 36px }
 .annotation1 {
 	font:italic 12px bold;
 	color:grey;
@@ -61,22 +63,28 @@ hr {
 	border:1px solid #BDBDBD;
 	margin:14px
 	}
+.white { color: white }
+.red { color: red }
 
 
 /* 입력 */
 
-input {
+input:not([type="button"]):not([type="checkbox"]) {
 	border:0px;
-	border-bottom:1px solid grey;
-	border-radius:0;
-	background-color:transparent;
+	background-color: #F2F2F2;
 	text-align:center;
-	font-family:'Nanum Gothic'
+	font-family:'Nanum Gothic';
+	margin:1px
 	}
 input:focus	{
 	outline:none;
 	border-bottom:1px solid #01A9DB
 	}
+input::placeholder {
+	font-weight: bold;
+	color:#a4a4a4
+}
+
 .input_s { width:10% }
 .input_m { width:20% }
 .input_l { width:30% }
@@ -88,20 +96,20 @@ input:focus	{
 	width:60%;
 	}
 
-button {
-	border:1px solid #2E2E2E; 
+input[type="button"] {
+	border:1px solid #2E2E2E;
 	border-radius:3px;
-	padding:2px;
-	margin:1px 1px 0 0;
+	padding:4px;
+	margin:2px 1px;
 	background-color:transparent;
-	font:bold 12px 'Nanum Gothic';
+	font:bold 14px 'Nanum Gothic';
 	color:#2E2E2E;
 	}
-button:hover {
+input[type="button"]:hover {
 	background-color:#2E2E2E;
 	color:#E6E6E6
 	}
-button:focus {
+input[type="button"]:focus {
 	background-color:#2E2E2E;
 	color:#E6E6E6
 	}
@@ -129,6 +137,6 @@ button:focus {
 .flex3 { flex:3 }
 .flex4 { flex:4 }
 .flex_center { align-items:center }
+.left { text-align: left }
 .right { text-align:right }
 .center { text-align:center }
-
