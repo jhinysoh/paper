@@ -10,30 +10,33 @@ block content
 		form
 			fieldset
 				span.red *
-				input(type="email",autofocus,required,placeholder="이메일").index_input.index_qual1
+				input(type="email",name="email",autofocus,required,placeholder="이메일").index_input.index_qual1
 				.index_qual2
 					input(type="button",value="중복확인").index_btn1
 				br
 				span.red *
-				input(type="password",required,placeholder="비밀번호").index_input
+				input(type="password",name="password",required,placeholder="비밀번호").index_input
 				br
 				span.red *
-				input(type="password",required,placeholder="비밀번호확인").index_input
+				input(type="password",name="password",required,placeholder="비밀번호확인").index_input
 				br
 				span.red *
-				input(type="text",required,placeholder="실명").index_input
+				input(type="text",name="name",required,placeholder="실명").index_input
 				br
 				span.red *
-				input(type="text",required,placeholder="닉네임").index_input
+				input(type="text",name="nick",required,placeholder="닉네임").index_input
 				br
 				span.red *
-				input(type="number",required,placeholder="휴대전화(-빼고입력)").index_input.index_qual1
+				input(type="number",name="tel",required,placeholder="휴대전화").index_input.index_qual1
 				.index_qual2
 					input(type="button",value="인증하기").index_btn1
 				br
 				span.red *
-				input(type="text",placeholder="소속동물병원").index_input
+				input(type="text",name="hospital",placeholder="소속동물병원").index_input
+				br
+				span.red *
+				input(type="number",name="lisence",placeholder="면허번호").index_input
 				br
 				span.white *
-				input(type="button",value="가입").index_btn2
-				input(type="button",value="취소").index_btn2
+				input(type="button",onclick="submit",value="가입").index_btn2
+				input(type="button",value="취소",onclick="signup_cancel()").index_btn2

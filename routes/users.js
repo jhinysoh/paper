@@ -30,8 +30,9 @@ var member = new mongoose.Schema({
   email: { type: String, unique: true },		//이메일
 	name: String,                          		//이름
 	nick: { type:String, unique: true },	  	//닉네임
-	tel: [ Number ],                       		//전화번호
-	hospital: [ Number ]                     	//소속병원 id
+	tel: Number,                       		//전화번호
+	hospital: [ Number ],                     	//소속병원 id
+  lisence: Number
 });
 
 // 고객정보
