@@ -41,7 +41,7 @@ fieldset { border:none }
 
 .signup {
 	width: 600px;
-	border:1px solid grey;
+	border:1px solid;
 	border-radius: 6px;
 	text-align: center
 }
