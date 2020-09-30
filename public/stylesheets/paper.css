@@ -72,7 +72,7 @@ body { background-color: #2e2e2e }
 	margin-top:10px;
 	overflow:auto;
 }
-#history1 { border-bottom: 1px solid #bdbdbd }
+.history1 { border-bottom: 1px solid #bdbdbd }
 
 
 /* 페이퍼2 */
