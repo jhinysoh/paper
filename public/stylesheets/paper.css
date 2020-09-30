@@ -68,12 +68,10 @@ body { background-color: #2e2e2e }
 	border:1px solid grey;
 	border-radius:2px;
 	box-shadow:1px 1px 3px grey;
-	padding:20px;
+	padding:10px;
 	margin-top:10px;
 	overflow:auto;
 }
-.history1 { border-bottom: 1px solid #bdbdbd }
-
 
 /* 페이퍼2 */
 
