@@ -37,7 +37,7 @@ body { background-color: #2e2e2e }
 .r_side {
 	width: 120px;
     z-index: 10;
-    padding-right:-1px
+    margin-right: -1px
     }
 .date1, .date2 {
 	display: flex;
