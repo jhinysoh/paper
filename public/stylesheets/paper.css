@@ -24,7 +24,10 @@ body { background-color: #2e2e2e }
 	margin: 0 2px 2px 0;
 	border-radius: 2px
 	}
-.paper1 { background-color: #f2f2f2 }
+.paper1 {
+	background-color: #f2f2f2;
+	color: #2e2e2e
+	}
 .paper2, .paper3 { background-color: #fff }
 
 /* 페이퍼1 */
