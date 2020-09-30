@@ -14,7 +14,7 @@ body { background-color: #2e2e2e }
 	text-align: center;
 	font-size: 18px;
 	font-weight: bold;
-	color: grey
+	color: #1c1c1c
 	}
 .paper1, .paper2, .paper3 {
 	align-self: stretch;
@@ -34,7 +34,6 @@ body { background-color: #2e2e2e }
 #info {
 	height: 200px;
 	border-bottom: 1px solid #bdbdbd;
-	color: grey;
 	margin-bottom:10px
 	}
 .r_side {
@@ -52,7 +51,6 @@ body { background-color: #2e2e2e }
 	border-bottom: none;
 	border-radius: 5px 0px 0px 0px;
 	margin-bottom: -1px;
-	color: grey;
 	cursor: pointer
 	}
 .date1 { background-color: #fff	}
