@@ -32,7 +32,7 @@ body {
 .box_content { padding:5px }
 .over_h {
 	max-width: 150px;
-	text-overflow: ellipsis
+	text-overflow: clip
 	}
 
 /* 크기 */
