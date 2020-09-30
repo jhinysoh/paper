@@ -88,7 +88,6 @@ body { background-color: #2e2e2e }
 }
 
 /* 페이퍼2 */
-
 #s_head {
 	height:100px;
 	padding:10px
@@ -96,7 +95,7 @@ body { background-color: #2e2e2e }
 #logo {
 	width:90px;
 	height:90px;
-	background-image:url("img/logo.png");
+	background-image:url("images/logo.png");
 	background-size:cover
 	}
 #cc {
