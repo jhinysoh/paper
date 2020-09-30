@@ -1,3 +1,4 @@
+body { background-color:#2e2e2e }
 .paper {
 	display:flex;
 	flex-direction:column;
