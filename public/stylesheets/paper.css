@@ -4,9 +4,11 @@ body { background-color: #2e2e2e }
 	display: flex;
 	width: 100%;
 	background-color: #f2f2f2;
-	font-size:18px;
+	font-size: 18px;
+	text-align: center;
 	padding:4px;
-	margin: 0 2px 2px 0
+	margin: 0 2px 2px 0;
+	border-radius: 2px
 	}
 .paper_nav1 {
 	width: 120px;
