@@ -38,8 +38,9 @@ body { background-color: #2e2e2e }
 	}
 .info1 {
 	display: flex;
-	justify-content: flex-right;
-	align-items: flex-end
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding: 2px
 	}
 .info2 {
 	border-bottom: 1px solid #bdbdbd;
