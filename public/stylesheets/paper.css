@@ -103,6 +103,7 @@ body { background-color: #2e2e2e }
 	margin-top:8px;
 	padding:4px;
 	border-bottom:2px solid black;
+	border-radius: 0px;
 	font:800 18px 'Nanum Myeongjo';
 	}
 #cc:focus { border-color:#01A9DB }
