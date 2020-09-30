@@ -27,11 +27,11 @@ body { background-color: #2e2e2e }
 .paper2, .paper3 { background-color: #fff }
 
 /* 페이퍼1 */
-
-.i_side {
-	width: 138px;
-    margin-right: -1px
-    }
+#info {
+	display: flex;
+	height: 200px;
+	border-bottom: 1px solid #bdbdbd
+	}
 .r_side {
 	width: 120px;
     z-index: 10;
