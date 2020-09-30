@@ -31,7 +31,7 @@ body {
 	}
 .box_content { padding:5px }
 .over_h {
-	max-width: 200px;
+	max-width: 150px;
 	text-overflow: ellipsis
 	}
 
