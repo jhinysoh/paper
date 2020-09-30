@@ -18,7 +18,6 @@ body { background-color: #2e2e2e }
 .paper1, .paper2, .paper3 {
 	align-self: stretch;
 	min-width: 500px;
-	max-width: 800px;
 	min-height: 900px;
 	padding: 20px;
 	margin: 0 2px 2px 0;
