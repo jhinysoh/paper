@@ -103,6 +103,7 @@ input::placeholder {
 	}
 
 input[type="button"] {
+	height: 20px;
 	border:1px solid #2E2E2E;
 	border-radius:3px;
 	padding:4px;
