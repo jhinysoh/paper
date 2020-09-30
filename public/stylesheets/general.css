@@ -31,6 +31,10 @@ body {
 	}
 .box_content { padding:5px }
 
+/* 크기 */
+.50px { width: 50px }
+.100px { width: 100px }
+
 /* 텍스트 */
 
 h1, h2, h3, h4 {
