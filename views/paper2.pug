@@ -1,0 +1,81 @@
+
+header#s_head.flex_row
+	#logo
+	.flex1.center
+	.right.annotation2 Case no. uvet-2020-00001
+	input#cc(placeholder="내원목적",value="공원에서 산책 후 좌후지파행, 통증호소")
+	br
+	span.annotation2
+		b Author
+		| 김어준 DVM, PhD, 원장 &nbsp
+		b Date 2020.9.15 &nbsp
+		b Time
+		| 2:15pm
+
+section.flex4.flex_row
+	aside.flex1.box
+		.box_top 개요
+		ul
+			li 동물이름
+			li 나이
+			li 성별
+	article.flex3.flex_column
+		.flex_row.flex_center
+			span
+				h1 S
+				h3 ~A
+			span.annotation1 [태그예시] #종합3차+엔터
+		#subjective.flex1
+hr
+
+section.flex3.flex_row
+	article.flex2.flex_column
+		.flex_row.flex_center
+			h1 O
+			span.flex1.right.annotation2
+				input.input_s(placeholder="체중")
+				span ㎏ &nbsp
+				.input.input_s(placeholder="체온")
+				span ℃ &nbsp
+				input.input_s(placeholder="심박수")
+				span b/m &nbsp
+				input.input_s(placeholder="호흡수")
+				span r/m &nbsp
+				input.input_s(placeholder="혈압")
+				span mmHg &nbsp
+		.flex_row.flex1
+		.flex_row
+			input.btn_m.flex1(type="button",value="검이경")
+			input.btn_m.flex1(type="button",value="현미경")
+			input.btn_m.flex1(type="button",value="방사선")
+			input.btn_m.flex1(type="button",value="초음파")
+			input.btn_m.flex1(type="button",value="이미지")
+		.flex_row
+			input.btn_m.flex1(type="button",value="검사 1")
+			input.btn_m.flex1(type="button",value="검사 2")
+			input.btn_m.flex1(type="button",value="검사 3")
+			input.btn_m.flex1(type="button",value="검사 4")
+			input.btn_m.flex1(type="button",value="검사 5")
+
+	article.flex1.box.flex_column
+		.box_top.flex_row.flex_center
+			span DDx
+			input.box_input(placeholder="#")
+		.box_content.right.annotation2
+			b Rull-out / Dx
+		.box_content.flex1
+			.flex_row
+				pan> 1. 이런 병
+				br
+				span
+					input(type="checkbox")
+					input(type="checkbox")
+			.flex_row
+				span 1. 저런 병
+				br
+				span
+					input(type="checkbox")
+					input(type="checkbox")
+		.box_content.right
+			input.btn_s(type="button",value="직접선택")
+			input.btn_s(type="button",value="이전기록")
