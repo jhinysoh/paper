@@ -26,8 +26,8 @@ body { background-color: #2e2e2e }
 	align-items: center;
 	justify-content: center;
 	height: 32px;
-	border: 1px solid grey;
-	border-right, border-bottom: none;
+	border: 1px 0px 0px 1px;
+	border-color: grey;
 	border-radius: 5px 0px 0px 0px;
 	margin-bottom: -1px;
 	font-weight: bold;
