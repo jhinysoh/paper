@@ -42,7 +42,7 @@ body { background-color: #2e2e2e }
 	color: #f2f2f2;
 	background-color: #2e2e2e;
 	}
-.date2:hover:blur {
+.date2:hover&&blur {
 	color: #2e2e2e;
 	background-color: #f2f2f2;
 	}
