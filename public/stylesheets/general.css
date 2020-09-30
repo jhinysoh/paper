@@ -157,6 +157,7 @@ input[type="button"]:hover,input[type="button"]:focus {
 .f_3 { flex: 3 }
 .f_4 { flex: 4 }
 .f_center { align-items: center }
+.f_end { align-items: flex-end }
 .left { text-align: left }
 .right { text-align:right }
 .center { text-align:center }
