@@ -48,7 +48,6 @@ h1, h2, h3, h4 {
 	display:inline;
 	font:bold 36px Kaushan Script;
 	margin:0;
-	padding:0;
 	}
 h1 {
 	color: white;
@@ -64,7 +63,7 @@ h3 {
 	font-size:24px
 	}
 h4 {
-	color:white;
+	color:grey;
 	font-size: 22px
 	}
 .annotation1 {
