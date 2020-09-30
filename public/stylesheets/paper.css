@@ -4,8 +4,6 @@ body { background-color: #2e2e2e }
 	display: flex;
 	width: 100%;
 	background-color: #f2f2f2;
-	font-size: 18px;
-	text-align: center;
 	padding:4px;
 	margin: 0 2px 2px 0;
 	border-radius: 2px
@@ -13,7 +11,10 @@ body { background-color: #2e2e2e }
 .paper_nav1 {
 	width: 120px;
 	border-right: 1px solid grey;
-	padding: 4px
+	padding: 4px;
+	text-align: center
+	font-size: 18px;
+	color: grey
 	}
 .paper1, .paper2, .paper3 {
 	min-width: 500px;
