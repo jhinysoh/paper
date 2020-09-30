@@ -38,14 +38,12 @@ body { background-color: #2e2e2e }
     background-color: #fff;
     border-right: none
 	}
-}
 #list_date {
 	border:1px solid grey;
 	border-radius:5px;
 	padding:6px;
 	text-align:center;
 	box-shadow:1px 1px 3px #BDBDBD;
-	background-image:url("img/20200913092856.png")
 	}
 
 #history {
