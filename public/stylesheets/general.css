@@ -105,7 +105,7 @@ input[type="button"] {
 	font:bold 14px 'Nanum Gothic';
 	color:#2E2E2E;
 	}
-input[type="button"]:hover:focus {
+input[type="button"]:hover,input[type="button"]:focus {
 	border-radius:3px;
 	background-color:#2E2E2E;
 	color:#E6E6E6
