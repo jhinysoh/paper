@@ -21,8 +21,8 @@ header#info
 section.flex_row.flex1
 	aside.flex_column.r_side
 		h3 Record
-		.date2 2020. 9.10
-		.date1 2020. 9. 5
+		.date1 2020. 9.10
+		.date2 2020. 9. 5
 		.date2 2020. 9. 1
 		.date2 2020. 8.29
 		.date2 2020. 8.10
@@ -33,18 +33,20 @@ section.flex_row.flex1
 		.date2 2020. 4. 1
 		#list_date.flex1
 			span.bold << 1 2 3 4 5 >>
-	article.flex_column.f_1
+	article.f_1.f_column
 		.right.annotation1 *간단한 도움말 입력
-		#history.f_1
-			h4 S
-			hr
-			h4 O
-			hr
-			h4 A
-			hr
-			h4 P
-			hr
-			h4 Vac
-			hr
-			input.btn_s(type="button",value="출력")
-			input.btn_s(type="button",value="수정")
+		#history.f_1.f_column
+			.f1
+				h4 S
+				hr
+				h4 O
+				hr
+				h4 A
+				hr
+				h4 P
+				hr
+				h4 Vac
+				hr
+			.right
+				input.btn_s(type="button",value="출력")
+				input.btn_s(type="button",value="수정")
