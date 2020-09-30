@@ -13,7 +13,7 @@ body { background-color: #2e2e2e }
 	border-right: 1px solid grey;
 	padding: 4px;
 	text-align: center;
-	font: bold 18px;
+	font-weight: bold;
 	color: grey
 	}
 .paper1, .paper2, .paper3 {
