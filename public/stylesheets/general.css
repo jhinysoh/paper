@@ -37,6 +37,7 @@ body {
 	text-overflow: hidden;
 	text-overflow: ellipsis
 	}
+.bold { font-weight: bold }
 
 /* 크기 */
 .w40 { width: 40px }
