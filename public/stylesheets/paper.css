@@ -29,7 +29,8 @@ body { background-color: #2e2e2e }
 /* 페이퍼1 */
 #info {
 	height: 200px;
-	border-bottom: 1px solid #bdbdbd
+	border-bottom: 1px solid #bdbdbd;
+	color: grey
 	}
 .r_side {
 	width: 120px;
