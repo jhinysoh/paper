@@ -20,6 +20,11 @@ router.get('/signup', function(req, res, next) {
   res.render('signup');
 });
 
+//- GET 페이퍼
+router.get('/paper', function(req, res, next) {
+  res.render('paper1'+'paper2'+'paper3');
+});
+
 
 
 module.exports = router;
