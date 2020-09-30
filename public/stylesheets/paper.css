@@ -37,7 +37,7 @@ body { background-color: #2e2e2e }
 	cursor: pointer
 	}
 .date1 { background-color: #fff	}
-.date2:focus, date2:hover {
+.date2:focus, .date2:hover {
 	outline: none;
 	color: #f2f2f2;
 	background-color: #2e2e2e;
