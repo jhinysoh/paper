@@ -28,7 +28,6 @@ body { background-color: #2e2e2e }
 
 /* 페이퍼1 */
 #info {
-	display: flex;
 	height: 200px;
 	border-bottom: 1px solid #bdbdbd
 	}
