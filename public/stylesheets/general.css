@@ -32,8 +32,8 @@ body {
 .box_content { padding:5px }
 
 /* 크기 */
-.50px { width: 50px }
-.100px { width: 100px }
+.w50 { width: 50px }
+.w100 { width: 100px }
 
 /* 텍스트 */
 
