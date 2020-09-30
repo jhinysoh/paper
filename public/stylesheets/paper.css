@@ -9,7 +9,7 @@ body { background-color: #2e2e2e }
 	border-radius: 2px
 	}
 .paper1 { background-color: #f2f2f2 }
-.paper2 { background-color: #fff }
+.paper2, .paper3 { background-color: #fff }
 
 /* 페이퍼1 */
 
