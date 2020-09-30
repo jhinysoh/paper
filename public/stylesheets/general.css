@@ -30,7 +30,10 @@ body {
 	border-radius:5px 5px 0 0;
 	}
 .box_content { padding:5px }
-.over_h { text-overflow: clip }
+.over_h {
+	max-width: 200px;
+	text-overflow: ellipsis
+	}
 
 /* 크기 */
 .w40 { width: 40px }
