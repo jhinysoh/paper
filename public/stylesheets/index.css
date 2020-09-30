@@ -4,9 +4,10 @@ fieldset { border:none }
 .index_center {
 	flex: 1;
 	display:flex;
+	align-items:center;
 	background-color: black;
 	text-align:center;
-	align-items:center
+	border-radius: 2px
 }
 #index_login {
 	width:300px;
