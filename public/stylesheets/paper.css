@@ -39,11 +39,11 @@ body { background-color: #2e2e2e }
 .info1 {
 	display: flex;
 	justify-content: flex-end;
-	align-items: flex-end;
-	padding: 2px
+	align-items: flex-end
 	}
 .info2 {
 	border-bottom: 1px solid #bdbdbd;
+	padding: 2px;
 	margin-bottom: 2px;
 	text-align:center;
 	overflow: hidden;
