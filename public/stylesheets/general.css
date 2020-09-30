@@ -108,12 +108,14 @@ input[type="button"] {
 input[type="button"]:hover {
 	border:1px solid #2E2E2E;
 	border-radius:3px;
+	padding:4px;
 	background-color:#2E2E2E;
 	color:#E6E6E6
 	}
 input[type="button"]:focus {
 	border:1px solid #2E2E2E;
 	border-radius:3px;
+	padding:4px;
 	background-color:#2E2E2E;
 	color:#E6E6E6
 	}
