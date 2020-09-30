@@ -22,6 +22,7 @@ body { background-color: #2e2e2e }
     z-index: 10;
     }
 .date1, .date2 {
+	vertical-align: center;
 	width: 140px;
 	height: 32px;
 	border: 1px solid grey;
