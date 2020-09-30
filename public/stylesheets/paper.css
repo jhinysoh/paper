@@ -9,11 +9,11 @@ body { background-color: #2e2e2e }
 	border-radius: 2px
 	}
 .paper_nav1 {
-	width: 120px;
+	width: 100px;
 	border-right: 1px solid grey;
 	padding: 4px;
 	text-align: center;
-	font-size: 18px;
+	font: bold 18px;
 	color: grey
 	}
 .paper1, .paper2, .paper3 {
