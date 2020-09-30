@@ -16,7 +16,6 @@ body { background-color: #2e2e2e }
 
 .i_side {
 	width: 138px;
-    z-index: 10;
     margin-right: -1px
     }
 .r_side {
@@ -50,6 +49,7 @@ body { background-color: #2e2e2e }
 	}
 
 #history {
+	z-index:10;
 	background-color:#E6E6E6;
 	border:1px solid grey;
 	border-radius:2px;
