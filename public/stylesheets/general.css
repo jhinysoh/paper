@@ -31,6 +31,7 @@ body {
 	}
 .box_content { padding:5px }
 .over_h {
+	padding
 	max-width: 200px;
 	whit-space: nowrap;
 	text-overflow: hidden;
