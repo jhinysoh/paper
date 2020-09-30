@@ -38,12 +38,8 @@ body {
 .bold { font-weight: bold }
 
 /* 크기 */
-.w40 { width: 40px }
 .w50 { width: 50px }
-.w60 { width: 60px }
-.w100 { width: 100px }
-.w120 { width: 120px }
-.w150 { width: 150px }
+.w80 { width: 60px }
 .w200 { width: 200px }
 
 /* 텍스트 */
