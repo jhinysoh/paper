@@ -152,6 +152,7 @@ input[type="button"]:hover,input[type="button"]:focus {
 	display:flex;
 	flex-wrap:wrap;
 	justify-content:space-between;
+	align-items: center
 	}
 .f_column {
 	display: flex;
