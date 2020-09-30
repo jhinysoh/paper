@@ -30,11 +30,6 @@ body {
 	border-radius:5px 5px 0 0;
 	}
 .box_content { padding:5px }
-.over_h {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis
-	}
 .bold { font-weight: bold }
 
 /* 크기 */
