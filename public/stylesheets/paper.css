@@ -45,7 +45,7 @@ body { background-color: #2e2e2e }
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 32px;
+	height: 36px;
 	border: 1px solid grey;
 	border-right: none;
 	border-bottom: none;
