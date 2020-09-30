@@ -1,4 +1,6 @@
 .paper {
+	display:flex;
+	flex-direction:column;
 	min-width:600px;
 	max-width:800px;
 	min-height:1000px;
