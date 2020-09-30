@@ -34,7 +34,6 @@ body { background-color: #2e2e2e }
 	}
 .date1 {
     background-color: #fff;
-    z-index: 20;
     border-right: none
 	}
 .date1:hover {
@@ -51,7 +50,6 @@ body { background-color: #2e2e2e }
 	}
 
 #history {
-	z-index:10;
 	background-color: #fff;
 	border:1px solid grey;
 	border-radius:2px;
