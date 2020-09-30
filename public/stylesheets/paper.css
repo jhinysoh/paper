@@ -32,12 +32,12 @@ body { background-color: #2e2e2e }
 	margin-bottom: -2px;
 	}
 .date1 {
-    background-color:#fff;
+    background-color: #fff;
     z-index: 20;
     border-right: none
 	}
 .date1:hover {
-   background-color:#fff;
+   background-color: #fff;
    color:#2E2E2E;
 }
 #list_date {
