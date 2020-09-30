@@ -4,14 +4,13 @@ body { background-color: #2e2e2e }
 	display: flex;
 	width: 100%;
 	background-color: #f2f2f2;
-	padding:4px;
+	padding:8px;
 	margin: 0 2px 2px 0;
 	border-radius: 2px
 	}
 .paper_nav1 {
 	width: 100px;
 	border-right: 1px solid grey;
-	padding: 4px;
 	text-align: center;
 	font-weight: bold;
 	color: grey
