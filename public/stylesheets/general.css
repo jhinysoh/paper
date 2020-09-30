@@ -52,18 +52,25 @@ body {
 h1, h2, h3, h4 {
 	display:inline;
 	font:bold 36px Kaushan Script;
-	text-shadow:1px 1px 1px #A4A4A4;
 	margin:0;
 	padding:0;
-	color: black
 	}
-h1 { color: white }
-h2 { font-size:28px }
-h3 { font-size:24px }
+h1 {
+	color: white;
+	text-shadow:1px 1px 1px #A4A4A4
+	}
+h2 {
+	color: black;
+	font-size:28px;
+	text-shadow:1px 1px 1px #A4A4A4
+	}
+h3 {
+	color: black;
+	font-size:24px
+	}
 h4 {
+	color:white;
 	font-size: 22px
-	color:grey;
-	text-shadow:none
 	}
 .annotation1 {
 	font:italic 12px bold;

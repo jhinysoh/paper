@@ -2,8 +2,8 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/general.css')
   block content
-   h1= message
-   h2= error.status
+   span= message
+   span= error.status
    pre #{error.stack}
