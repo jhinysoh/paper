@@ -22,7 +22,7 @@ body { background-color: #2e2e2e }
     z-index: 10;
     }
 .date1, .date2 {
-	vertical-align: center;
+	vertical-align: middle;
 	width: 140px;
 	height: 32px;
 	border: 1px solid grey;
@@ -30,7 +30,7 @@ body { background-color: #2e2e2e }
 	border-bottom: none;
 	border-radius: 5px 0px 0px 0px;
 	margin-bottom: -1px;
-	font: bold 14px;
+	font: 13px bold;
 	}
 .date1 {
     background-color: #fff;
