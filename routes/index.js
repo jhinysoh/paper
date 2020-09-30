@@ -22,7 +22,7 @@ router.get('/signup', function(req, res, next) {
 
 //- GET 페이퍼
 router.get('/paper', function(req, res, next) {
-  res.render('paper1', 'paper2');
+  res.render('paper1', 'paper2', 'paper3');
 });
 
 
