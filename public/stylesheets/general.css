@@ -32,6 +32,8 @@ body {
 .box_content { padding:5px }
 .over_h {
 	max-width: 150px;
+	whit-space: nowrap;
+	overflow: hidden;
 	text-overflow: clip
 	}
 
