@@ -31,7 +31,8 @@ body { background-color: #2e2e2e }
 	height: 200px;
 	border-bottom: 1px solid #bdbdbd;
 	color: grey;
-	font-size: 14px
+	font-size: 14px;
+	margin-bottom:10px
 	}
 .r_side {
 	width: 120px;
