@@ -36,6 +36,12 @@ body { background-color: #2e2e2e }
 	border-bottom: 1px solid #bdbdbd;
 	margin-bottom:10px
 	}
+.info1 {
+	display: flex;
+	justify-content: flex-right;
+	border-bottom: 1px solid #bdbdbd;
+	text-align:center
+	}
 .date1, .date2 {
 	display: flex;
 	align-items: center;
