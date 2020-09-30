@@ -39,8 +39,14 @@ body { background-color: #2e2e2e }
 .info1 {
 	display: flex;
 	justify-content: flex-right;
+	}
+.info2 {
 	border-bottom: 1px solid #bdbdbd;
-	text-align:center
+	margin-bottom: 2px;
+	text-align:center;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis
 	}
 .date1, .date2 {
 	display: flex;
