@@ -1,0 +1,66 @@
+extends layout
+block content
+
+
+    //- Paper1
+
+    .paper.flex_column.flex3
+
+	//- Info
+	header.flex_row
+		aside.i_side.flex_column
+			h2 Info
+			input.btn_m(type="button",value="찾기 F1")
+			input.btn_m(type="button",value="외래대기열 F2")
+			input.btn_m(type="button",value="입원실 F3")
+			input.btn_m(type="button",value="메뉴 F4")
+			input.btn_m(type="button",value="메뉴 F5")
+			input.btn_m(type="button",value="메뉴 F6")
+		.flex1.right
+			input.input_m(placeholder="보호자")
+			input.input_m(placeholder="전화번호")
+			input.input_m(placeholder="분류")
+			input.btn_s(type="button",value="상세")
+			p
+			nav
+				input.input_m(placeholder="동물")
+				input.input_s(placeholder="종")
+				input.input_l(placeholder="품종")
+				input.input_s(placeholder="성별")
+				input.input_s(placeholder="나이")
+				input.btn_s(type="button",value="상세")
+				input.btn_s(type="button",value="+")
+				br
+	hr
+
+	//- Record
+	section.flex_row.flex1
+		aside.flex_column.r_side
+			h2 Record
+			input.date2(type="button",value="2020.9.10")
+			input.date1(type="button",value="2020.8.7",disabled)
+			input.date2(type="button",value="2020.7.26")
+			input.date2(type="button",value="2020.6.10")
+			input.date2(type="button",value="2020.6.5")
+			input.date2(type="button",value="2020.8.7")
+			input.date2(type="button",value="2020.7.26")
+			input.date2(type="button",value="2020.6.10")
+			input.date2(type="button",value="2020.6.5")
+			input.date2(type="button",value="2020.5.5")
+			.#list_date.flex1
+				span.annotation2 << &nbsp 1 2 3 4 5 &nbsp >>
+		article.flex_column.flex1
+			.right.annotation1 *간단한 도움말 입력
+			#history.flex1
+				h3 S
+				hr
+				h3 O
+				hr
+				h3 A
+				hr
+				h3 P
+				hr
+				h3 Vac
+				hr
+				input.btn_s(type="button",value="출력"
+				input.btn_s(type="button",value="수정"
