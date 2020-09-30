@@ -19,7 +19,7 @@ body {
     border-radius:6px;
 	margin:0 10px;
 	}
-.box_top {
+.box_title {
 	background-color:black;
 	color:#E6E6E6;
 	font-weight:bold;
@@ -35,18 +35,18 @@ body {
 
 h1, h2, h3, h4 {
 	display:inline;
-	font:bold 28px Kaushan Script;
+	font:bold 36px Kaushan Script;
 	text-shadow:1px 1px 1px #A4A4A4;
 	margin:0;
 	padding:0
 	}
-h2 { font-size:22px }
-h3 {
-	font-size:24px;
+h2 { font-size:28px }
+h3 { font-size:24px }
+h4 {
+	font-size: 22px
 	color:grey;
 	text-shadow:none
 	}
-h4 { font-size: 36px }
 .annotation1 {
 	font:italic 12px bold;
 	color:grey;
@@ -105,11 +105,8 @@ input[type="button"] {
 	font:bold 14px 'Nanum Gothic';
 	color:#2E2E2E;
 	}
-input[type="button"]:hover {
-	background-color:#2E2E2E;
-	color:#E6E6E6
-	}
-input[type="button"]:focus {
+input[type="button"]:hover:focus {
+	border-radius:3px;
 	background-color:#2E2E2E;
 	color:#E6E6E6
 	}
