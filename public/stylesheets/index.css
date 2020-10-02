@@ -19,6 +19,8 @@ fieldset { border:none }
 	}
 .index-input {
 	width:250px;
+	border: none;
+	background-color: #F2F2F2;
 	font-size:14px;
 	padding:8px;
 	margin:1px

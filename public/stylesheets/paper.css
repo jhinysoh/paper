@@ -1,12 +1,9 @@
 body { background-color: #2e2e2e }
 
 .paper-nav {
-	display: flex;
-	align-items: flex-end;
-	width: 100%;
-	background-color: #fff;
-	padding:8px;
-	margin: 0 2px 2px 0;
+	background-color: #F2F2F2;
+	padding:10px;
+	margin-bottom: 2px;
 	border-radius: 2px
 	}
 .paper-nav1 {
@@ -80,7 +77,7 @@ body { background-color: #2e2e2e }
 	border:1px solid #A4A4A4;
 	border-radius:5px;
 	padding-top:10px;
-	margin: 0 -2px -2px -1px;
+	margin: 0 -2px 0 -1px;
 	text-align:center;
 	box-shadow:1px 1px 3px #A4A4A4;
 	z-index: 10
@@ -101,33 +98,55 @@ body { background-color: #2e2e2e }
 	height:80px;
 	background-image:url("/images/photo.jpeg");
 	background-size:cover;
-	margin: 10px
+	margin: 0 10px 10px 0;
+	border-radius: 4px
 	}
 #cc {
-	width:100%;
-	margin: 10px 0 6px 0;
-	padding:4px;
+	align-self: stretch;
+	margin: 6px 0;
+	padding: 5px;
 	background-color: transparent;
+	border: none;
 	border-bottom:2px solid black;
 	border-radius: 0px;
 	font:800 18px 'Nanum Myeongjo';
 	}
 #cc:placeholder { color: #01A9DB }
-#cc:focus {
-	border-color: #01A9DB;
-	background-color: #FAFAFA
-	}
+#cc:focus { background-color: #FAFAFA	}
 #subjective {
-	background-color:transparent;
-	border:none;
+	border-radius: 6px;
+	border: none;
+	margin: 0
 	}
 #subjective:focus {
 	box-shadow:none;
-	background-color: #FAFAFA
+	background-color: white
 	}
-
+.vital {
+	font-size: 12px;
+	border : none;
+	border-bottom: 1px solid grey;
+	background-color: transparent;
+	width: 40px;
+	padding: 2px
+	}
+.vital::placeholder { font-size: 13px }
+.vital:focus { background-color: white }
+.ddx {
+	border: none;
+	border-bottom: 1px solid white;
+	background-color: transparent
+}
 
 /* 페이퍼3 */
-
-#p_tag {	width:200px	}
-#vac_tag { width:200px }
+.plan {
+	width:250px;
+	padding: 3px 2px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid grey
+}
+.foot {
+	padding: 10px;
+	font-size: 18px
+}

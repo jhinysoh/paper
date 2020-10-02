@@ -5,36 +5,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script');
 
 body {
-	display: flex;
-	flex-wrap: wrap;
 	height: 98vh;
 	font: 15px 'Nanum Gothic';
-	justify-content: center;
-	align-items: center;
 	cursor: default
 }
 
 /* DIV */
+.box-g {
+	background-color: #fafafa;
+	border-radius: 6px;
+	padding: 6px
+	}
 .box {
-	font-size:15px;
+	width: 33%;
+	background-color: white;
   border:1px solid black;
   border-radius:6px;
-	margin-left:10px;
+	margin-left:5px;
 	}
 .box1 {
 	background-color:black;
 	color:#E6E6E6;
 	font-weight:bold;
 	text-align:center;
-	padding:5px 10px;
+	padding: 10px;
 	margin:-1px;
 	border-radius:5px 5px 0 0;
 	}
-.box2 { padding:5px }
+.box2 { padding: 10px }
 .hr {
 	border: 1px solid #E6E6E6;
  	margin: 10px 0
 	}
+.b10 { margin-bottom: 10px }
 
 /* 크기 */
 .w50 { width: 50px }
@@ -68,37 +71,19 @@ ul { margin-left:-10px }
 
 /* 입력 */
 input:not([type="button"]):not([type="checkbox"]) {
-	border:0px;
-	background-color: #F2F2F2;
 	text-align:center;
 	font-family:'Nanum Gothic';
 	margin:1px
 	}
-input:focus	{
-	outline:none;
-	border-bottom:1px solid #01A9DB
-	}
+input:focus:not([type="checkbox"])	{	outline: none }
 input::placeholder {
 	font-weight: bold;
 	color: #A4A4A4;
 	font: bold 15px "Nanum Gothic"
 }
-
-.input_s { width:10% }
-.input_m { width:20% }
-.input_l { width:30% }
-
-.box_input {
-	font-size:13px;
-	font-weight:bold;
-	color:#E6E6E6;
-	width:60%;
-	}
-
 input[type="button"] {
 	border:1px solid #2E2E2E;
 	border-radius:3px;
-	padding:3px;
 	margin:2px 1px;
 	background-color:transparent;
 	font:bold 14px 'Nanum Gothic';
@@ -108,17 +93,10 @@ input[type="button"]:hover,input[type="button"]:focus {
 	background-color:#2E2E2E;
 	color:#E6E6E6
 	}
-.btn_s { padding:3px }
-.btn_m { padding:6px }
-.btn_l {
-	font-size:14px;
-	padding:8px
-	}
 
 /* 위치 */
 .f-row {
 	display:flex;
-	flex-wrap:wrap
 	}
 .f-col {
 	display: flex;

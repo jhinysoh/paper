@@ -1,9 +1,9 @@
 .f-row
 	#logo
-	.f1.center
+	.f1.f-col
 		.right.font-s Case no. uvet-2020-00001
 		input#cc(placeholder="내원목적",value="공원에서 산책 후 좌후지파행, 통증호소")
-		.font-s
+		.font-s.center
 			b Author &nbsp
 			a 김어준 DVM, PhD, 원장 &nbsp
 			a Date &nbsp
@@ -11,37 +11,37 @@
 			b Time &nbsp
 			a 2:15pm
 
-.f-row.f-cen
-	h1 S
-	h2 ~A
-	.f1
-	.right.font-s [태그예시] #종합3차+엔터
-
-.f4.f-row
-	#subjective.f2
-	.f1.box
+.box-g.f4.f-row.b10
+	.f1.f-col
+		.f-row.f-cen
+			h1 S
+			h2 ~A
+			.f1
+				.right.font-s.grey.italic [태그예시] #종합3차+엔터 &nbsp
+		#subjective.f1
+	.box
 		.box1 개요
 		ul
 			li 동물이름
 			li 나이
 			li 성별
+			li 최근진단
 
-.hr
-.f3.f-row
-	.f2.f-col
-		.f-row.f-center
+.box-g.f3.f-row
+	.f1.f-col
+		.f-row.f-cen
 			h1 O
-			span.f1.right.font-s
-				input.input_s(placeholder="체중")
-				span ㎏ &nbsp
-				.input.input_s(placeholder="체온")
-				span ℃ &nbsp
-				input.input_s(placeholder="심박수")
-				span b/m &nbsp
-				input.input_s(placeholder="호흡수")
-				span r/m &nbsp
-				input.input_s(placeholder="혈압")
-				span mmHg &nbsp
+			.f1.right
+				input.vital(placeholder="체중")
+				b.grey ㎏ &nbsp
+				input.vital(placeholder="체온")
+				b.grey ℃ &nbsp
+				input.vital(placeholder="심박수")
+				b.font-s.grey HR &nbsp
+				input.vital(placeholder="호흡수")
+				b.font-s.grey RR &nbsp
+				input.vital(placeholder="혈압")
+				b.font-s.grey BP &nbsp
 		.f1.f-row
 		.f-row
 			input.f1(type="button",value="검이경")
@@ -56,24 +56,24 @@
 			input.f1(type="button",value="검사 4")
 			input.f1(type="button",value="검사 5")
 
-	.f1.box.f-col
+	.box.f-col
 		.box1.f-row
 			span DDx
 			.f1
-			input.box_input(placeholder="#")
-		.box2.right.font-s
-			b Rull-out / Dx
-		.box2.f1
-			.f-row
-				span 1. 이런 병
-				.f1
-				input(type="checkbox")
-				input(type="checkbox")
-			.f-row
-				span 1. 저런 병
-				.f1
-				input(type="checkbox")
-				input(type="checkbox")
-		.box2.right
-			input.btn_s(type="button",value="직접선택")
-			input.btn_s(type="button",value="이전기록")
+			input.ddx.f1(placeholder="#")
+		.box2.f1.f-col
+			.right.font-s.bold.grey Rull-out / Dx
+			.f1
+				.f-row
+					span 1. 이런 병
+					.f1
+					input(type="checkbox")
+					input(type="checkbox")
+				.f-row
+					span 2. 저런 병
+					.f1
+					input(type="checkbox")
+					input(type="checkbox")
+			.right
+				input(type="button",value="직접선택")
+				input(type="button",value="이전기록")
