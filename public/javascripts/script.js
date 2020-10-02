@@ -1,11 +1,13 @@
 window.onload = function(){
 
 	// S 위지윅에디터(CKeditor)
-	InlineEditor.create( document.querySelector( '#subjective' ), {
-		toolbar: [ 'Heading', 'highlight', 'bold', 'italic', 'underline', 'strikethrough', 'BlockQuote', '|',
-		'bulletedList', 'numberedList', 'Indent', 'outdent', 'insertTable', '|', 'undo', 'redo' ]
-	} )
-	.catch( error => { console.log( error ); } );
+	InlineEditor
+			.create( document.querySelector( '#subjective' ),{
+				toolbar: [ 'highlight', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ]
+			} )
+			.catch( error => {
+					console.error( error );
+			} );
 
 }
 

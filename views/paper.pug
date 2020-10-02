@@ -5,17 +5,20 @@ html
 	link(rel='stylesheet',href='/stylesheets/general.css')
 	link(rel='stylesheet',href='/stylesheets/paper.css')
 	script(type="text/javascript",src='/javascripts/script.js')
+	script(type="text/javascript",src='/javascripts/ckeditor.js')
 
 	body
-		.paper_nav
-			.paper_nav1 찾기
-			.paper_nav1 대기실
-			.paper_nav1 접수대
-			.paper_nav1 진료실
-			.paper_nav1 입원실
-			.paper_nav1 미용실
-		.paper1.f_column.flex3
+		.paper-nav
+			.paper-nav1 찾기
+			.paper-nav1 내원목록
+			.paper-nav1 접수대
+			.paper-nav1 진료실
+			.paper-nav1 미용실
+			.f1.right
+			b 소준경님 &nbsp
+			span 사용자변경
+		.paper1.f-col.f3
 			include paper1
-		.paper2.f_column.flex3
+		.paper2.f-col.f3
 			include paper2
-		.paper3.f_column.flex2
+		.paper3.f-col.f2

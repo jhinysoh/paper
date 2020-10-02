@@ -1,23 +1,22 @@
 extends layout
 
 block content
-	.index_center
-		form#index_login
+	.index-main
+		form#index-login
 			fieldset
 				.center
-				input(type="text",autofocus,placeholder="이메일").index_input
+				input(type="text",autofocus,placeholder="이메일").index-input
 				br
-				input(type="password",placeholder="비밀번호").index_input
+				input(type="password",placeholder="비밀번호").index-input
 				p
 				input(type="checkbox",checked)#check_id
 				span 이메일저장
 				p
-				input(type="button",value="로그인").index_btn2
-				input(type="button",onclick="location.href='/signup'",value="회원가입").index_btn2
+				input(type="button",value="로그인").index-btn2
+				input(type="button",onclick="location.href='/signup'",value="회원가입").index-btn2
 				p
-				#find_id ID/PW 찾기
-		.index_side
-			blockqoute
-			h1 PAPER
+				#find-id ID/PW 찾기
+		.f1.white
+			h1 	PAPER
 			br
 			b simple one for all Vet...

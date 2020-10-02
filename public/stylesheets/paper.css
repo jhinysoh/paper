@@ -1,50 +1,52 @@
 body { background-color: #2e2e2e }
 
-.paper_nav {
+.paper-nav {
 	display: flex;
+	align-items: flex-end;
 	width: 100%;
-	background-color: #f2f2f2;
+	background-color: #fff;
 	padding:8px;
 	margin: 0 2px 2px 0;
 	border-radius: 2px
 	}
-.paper_nav1 {
+.paper-nav1 {
 	width: 100px;
 	border-right: 1px solid grey;
 	text-align: center;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
-	color: #1c1c1c
+	color: grey;
+	cursor: pointer
 	}
+.paper-nav1:hover { color: #1c1c1c }
 .paper1, .paper2, .paper3 {
 	align-self: stretch;
 	min-width: 500px;
+	max-width: 800px;
 	min-height: 900px;
 	padding: 20px;
 	margin: 0 2px 2px 0;
-	border-radius: 2px
+	border-radius: 2px;
+	color: #585858
 	}
 .paper1 {
-	background-color: #f2f2f2;
-	color: #424242
+	background-color: #F2F2F2;
+	color: #585858
 	}
-.paper2, .paper3 { background-color: #fff }
+.paper2, .paper3 {
+	background-color: #fff;
+	color: #000
+	}
 
 /* 페이퍼1 */
 #info {
 	height: 200px;
-	border-bottom: 1px solid #bdbdbd;
-	margin-bottom:10px
+	overflow: auto
 	}
-.info1 {
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-end
-	}
-.info2 {
-	border-bottom: 1px solid #bdbdbd;
-	padding: 2px;
-	margin-bottom: 2px;
+.info {
+	border-bottom: 2px solid #E6E6E6;
+	padding: 3px 2px;
+	margin: 1px;
 	text-align: center;
 	overflow: hidden;
 	white-space: nowrap;
@@ -54,72 +56,78 @@ body { background-color: #2e2e2e }
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 130px;
 	height: 36px;
-	border: 1px solid grey;
-	border-right: none;
+	border: 1px solid #A4A4A4;
 	border-bottom: none;
 	border-radius: 5px 0px 0px 0px;
-	margin-bottom: -1px;
-	cursor: pointer
+	margin: 0 -1px -1px 0;
+	cursor: pointer;
+	z-index: 10
 	}
-.date1 { background-color: #fff	}
+.date1 {
+	background-color: #FAFAFA;
+	border-right:1px solid #FAFAFA
+	}
 .date2:hover {
 	outline: none;
 	color: #f2f2f2;
 	background-color: #2e2e2e;
 	}
-
-#list_date {
-	border:1px solid grey;
+#date3 {
+	width: 131px;
+	background-color: #FAFAFA;
+	border:1px solid #A4A4A4;
 	border-radius:5px;
-	padding:6px;
+	padding-top:10px;
+	margin: 0 -2px -2px -1px;
 	text-align:center;
-	box-shadow:1px 1px 3px #BDBDBD;
+	box-shadow:1px 1px 3px #A4A4A4;
+	z-index: 10
 	}
-
 #history {
-	background-color: #fff;
-	border:1px solid grey;
+	background-color: #FAFAFA;
+	border:1px solid #A4A4A4;
 	border-radius:2px;
-	box-shadow:1px 1px 3px grey;
+	box-shadow:1px 1px 3px #A4A4A4;
 	padding:10px;
 	margin-top:10px;
 	overflow:auto;
 }
 
 /* 페이퍼2 */
-#s_head {
-	height:100px;
-	padding:10px
-	}
 #logo {
-	width:90px;
-	height:90px;
+	width:80px;
+	height:80px;
 	background-image:url("/images/photo.jpeg");
-	background-size:cover
+	background-size:cover;
+	margin: 10px
 	}
 #cc {
-	width:90%;
-	margin-top:8px;
+	width:100%;
+	margin: 10px 0 6px 0;
 	padding:4px;
+	background-color: transparent;
 	border-bottom:2px solid black;
 	border-radius: 0px;
 	font:800 18px 'Nanum Myeongjo';
 	}
-#cc:focus { border-color:#01A9DB }
-
+#cc:placeholder { color: #01A9DB }
+#cc:focus {
+	border-color: #01A9DB;
+	background-color: #FAFAFA
+	}
 #subjective {
 	background-color:transparent;
 	border:none;
-	font-size:14px
 	}
 #subjective:focus {
-	box-shadow:none
+	box-shadow:none;
+	background-color: #FAFAFA
 	}
 
 
 /* 페이퍼3 */
 
 #p_tag {	width:200px	}
-
 #vac_tag { width:200px }

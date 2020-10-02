@@ -10,17 +10,18 @@ body {
 	height: 98vh;
 	font: 15px 'Nanum Gothic';
 	justify-content: center;
-	align-items: center
+	align-items: center;
+	cursor: default
 }
 
 /* DIV */
 .box {
 	font-size:15px;
-    border:1px solid black;
-    border-radius:6px;
-	margin:0 10px;
+  border:1px solid black;
+  border-radius:6px;
+	margin-left:10px;
 	}
-.box_title {
+.box1 {
 	background-color:black;
 	color:#E6E6E6;
 	font-weight:bold;
@@ -29,8 +30,11 @@ body {
 	margin:-1px;
 	border-radius:5px 5px 0 0;
 	}
-.box_content { padding:5px }
-.bold { font-weight: bold }
+.box2 { padding:5px }
+.hr {
+	border: 1px solid #E6E6E6;
+ 	margin: 10px 0
+	}
 
 /* 크기 */
 .w50 { width: 50px }
@@ -39,40 +43,13 @@ body {
 .w200 { width: 200px }
 
 /* 텍스트 */
-
 h1, h2, h3, h4 {
 	display:inline;
-	font:bold 36px Kaushan Script;
-	margin:4px 0;
+	font-family:Kaushan Script;
+	text-shadow:1px 1px 1px #A4A4A4;
+	margin: 0;
 	}
-h1 {
-	color: white;
-	}
-h2 {
-	color: black;
-	font-size:28px;
-	text-shadow:1px 1px 1px #A4A4A4
-	}
-h3 {
-	color: black;
-	font-size:26px;
-	text-shadow:1px 1px 1px #A4A4A4
-	}
-h4 {
-	color:grey;
-	font-size: 22px
-	}
-.annotation1 {
-	font:italic 12px bold;
-	color:grey;
-	}
-.annotation2 { font-size:12px }
 ul { margin-left:-10px }
-hr {
-	height:0;
-	border:1px solid #BDBDBD;
-	margin:14px
-	}
 .bar {
 	width:0;
 	border:1px solid #BDBDBD;
@@ -80,10 +57,16 @@ hr {
 	}
 .white { color: white }
 .red { color: red }
+.grey { color: grey }
+.left { text-align: left }
+.right { text-align:right }
+.center { text-align:center }
+.bold { font-weight: bold }
+.italic { font-style: italic }
+.font-s { font-size: 12px }
 
 
 /* 입력 */
-
 input:not([type="button"]):not([type="checkbox"]) {
 	border:0px;
 	background-color: #F2F2F2;
@@ -97,7 +80,8 @@ input:focus	{
 	}
 input::placeholder {
 	font-weight: bold;
-	color:#a4a4a4
+	color: #A4A4A4;
+	font: bold 15px "Nanum Gothic"
 }
 
 .input_s { width:10% }
@@ -114,7 +98,7 @@ input::placeholder {
 input[type="button"] {
 	border:1px solid #2E2E2E;
 	border-radius:3px;
-	padding:4px;
+	padding:3px;
 	margin:2px 1px;
 	background-color:transparent;
 	font:bold 14px 'Nanum Gothic';
@@ -131,43 +115,18 @@ input[type="button"]:hover,input[type="button"]:focus {
 	padding:8px
 	}
 
-
 /* 위치 */
-
-.flex_row {
+.f-row {
 	display:flex;
-	flex-wrap:wrap;
-	justify-content:space-between;
+	flex-wrap:wrap
 	}
-.flex_column {
-	display:flex;
-	flex-direction:column;
-	}
-.flex1 { flex:1 }
-.flex2 { flex:2 }
-.flex3 { flex:3 }
-.flex4 { flex:4 }
-.flex_center { align-items:center }
-.left { text-align: left }
-.right { text-align:right }
-.center { text-align:center }
-
-.f_row {
-	display:flex;
-	flex-wrap:wrap;
-	justify-content:space-between;
-	align-items: center
-	}
-.f_column {
+.f-col {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column
 	}
-.f_1 { flex: 1 }
-.f_2 { flex: 2 }
-.f_3 { flex: 3 }
-.f_4 { flex: 4 }
-.f_center { align-items: center }
-.f_end { align-items: flex-end }
-.left { text-align: left }
-.right { text-align:right }
-.center { text-align:center }
+.f-cen { align-items: center }
+.f-end { align-items: flex-end }
+.f1 { flex: 1 }
+.f2 { flex: 2 }
+.f3 { flex: 3 }
+.f4 { flex: 4 }

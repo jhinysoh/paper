@@ -3,41 +3,41 @@ extends layout
 block content
 
 	.signup
-		.signup_title
+		.signup-title
 			h1 PAPER &nbsp &nbsp
 			b simple one for all Vet...
-		.signup_nav 회원가입
-		.signup_nav 동물병원등록
+		.signup-nav 회원가입
+		.signup-nav 동물병원등록
 		form
 			fieldset
 				span.red *
-				input(type="email",name="email",autofocus,required,placeholder="이메일").index_input.index_qual1
-				.index_qual2
-					input(type="button",value="중복확인").index_btn1
+				input(type="email",name="email",autofocus,required,placeholder="이메일").index-input.index-qual1
+				.index-qual2
+					input(type="button",value="중복확인").index-btn1
 				br
 				span.red *
-				input(type="password",name="password",required,placeholder="비밀번호").index_input
+				input(type="password",name="password",required,placeholder="비밀번호").index-input
 				br
 				span.red *
-				input(type="password",name="password",required,placeholder="비밀번호확인").index_input
+				input(type="password",name="password",required,placeholder="비밀번호확인").index-input
 				br
 				span.red *
-				input(type="text",name="name",required,placeholder="실명").index_input
+				input(type="text",name="name",required,placeholder="실명").index-input
 				br
 				span.red *
-				input(type="text",name="nick",required,placeholder="닉네임").index_input
+				input(type="text",name="nick",required,placeholder="닉네임").index-input
 				br
 				span.red *
-				input(type="number",name="tel",required,placeholder="휴대전화").index_input.index_qual1
-				.index_qual2
-					input(type="button",value="인증하기").index_btn1
+				input(type="number",name="tel",required,placeholder="휴대전화").index-input.index-qual1
+				.index-qual2
+					input(type="button",value="인증하기").index-btn1
 				br
 				span.red *
-				input(type="text",name="hospital",placeholder="소속동물병원").index_input
+				input(type="text",name="hospital",placeholder="소속동물병원").index-input
 				br
 				span.red *
-				input(type="number",name="lisence",placeholder="면허번호").index_input
+				input(type="number",name="lisence",placeholder="면허번호").index-input
 				br
 				span.white *
-				input(type="button",onclick="submit",value="가입").index_btn2
-				input(type="button",value="취소",onclick="signup_cancel()").index_btn2
+				input(type="button",onclick="submit",value="가입").index-btn2
+				input(type="button",value="취소",onclick="signup_cancel()").index-btn2
