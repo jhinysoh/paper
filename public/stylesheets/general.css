@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script');
 
 body {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 	height: 98vh;
 	font: 15px 'Nanum Gothic';
 	cursor: default

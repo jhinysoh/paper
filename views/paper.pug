@@ -7,7 +7,7 @@ html
 	script(type="text/javascript",src='/javascripts/script.js')
 	script(type="text/javascript",src='/javascripts/ckeditor.js')
 
-	body.f-col(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
+	body(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
 		.paper-nav.f-row
 			.paper-nav1 찾기
 			.paper-nav1 내원목록
@@ -17,10 +17,9 @@ html
 			.f1
 			b 소준경님 &nbsp
 			span 사용자변경
-		.f-row.f1
-			.paper1.f-col.f3
-				include paper1
-			.paper2.f-col.f3
-				include paper2
-			.paper3.f-col.f2
-				include paper3
+		.paper1.f-col.f3
+			include paper1
+		.paper2.f-col.f3
+			include paper2
+		.paper3.f-col.f2
+			include paper3
