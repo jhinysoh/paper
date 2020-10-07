@@ -16,44 +16,46 @@ db.once('open', () => {
 
 //- 세션 사용
 router.use(session({
-  secret: 'keyboard cat',
+  secret: '1938haehgoqeuq8yqetjkhakdf	',
   resave: false,
   saveUninitialized: true,
-	store: new FileStore()
+	store: new FileStore(),
+	cookie: { maxAge: 1000*60*60 }
 }));
 
 
-//- 로그인
-var authData = { email: 'jhinysoh@gmail.com', password:'trust', nickname: 'jk' }
-router.post('/auth', function(req, res){
-	var post = req.body;
-	var email = post.email;
-	var password = post.pw;
-	if(email===authData.email && password===authData.password){
-		res.redirect ('paper');
-	} else {  }
+//- 메인 페이지
+router.get('/', function(req, res) {
+	if(req.session.loggedin===true) { res.render('paper') }
+	else { req.session.destroy(); res.render('index'); }
 });
 
-//- GET home page
-router.get('/', function(req, res, next) {
-	console.log(req.session);
-	if(req.session.num === undefined) {
-		req.session.num = 1;
-	} else { req.session.num++;}
-  res.render('index');
+
+//- 로그인
+var authData = { email: '1', password:'1', nickname: 'jk' }
+
+router.post('/auth', function(req, res){
+	var email = req.body.email;
+	var password = req.body.pw;
+	if(email===authData.email && password===authData.password){
+		req.session.loggedin = true;
+		req.session.nickname = authData.nickname;
+		res.redirect('/');
+	} else {	}
+});
+
+//- 로그아웃
+router.get('/logout', function(req, res) {
+	req.session.destroy();
+	res.redirect('/');
 });
 
 
 //- GET 회원가입
-router.get('/signup', function(req, res, next) {
+router.get('/signup', function(req, res) {
   res.render('signup');
 });
 
-
-//- GET 페이퍼
-router.get('/paper', function(req, res, next) {
-  res.render('paper');
-});
 
 
 
