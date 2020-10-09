@@ -1,12 +1,12 @@
 var express = require('express');
 var session = require('express-session');
-var FileStore = require('session-file-store')(session);
 var router = express.Router();
 
 
 //- mongoDB 연결
 var mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://sohvet:no1.trust@paperdb.81owx.gcp.mongodb.net/paperDB?retryWrites=true&w=majority', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://sohvet:no1.trust@paperdb.81owx.gcp.mongodb.net/paperDB?retryWrites=true&w=majority',
+	{ useNewUrlParser: true,  useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', () => {
@@ -15,11 +15,15 @@ db.once('open', () => {
 
 
 //- 세션 사용
+var connectMongo = require('connect-mongo')(session);
 router.use(session({
-  secret: '1938haehgoqeuq8yqetjkhakdf	',
+  secret: '1938haehgoqeuq8yqetjkhakdf',
   resave: false,
   saveUninitialized: true,
-	store: new FileStore(),
+	store: new connectMongo({
+		url: 'mongodb+srv://sohvet:no1.trust@paperdb.81owx.gcp.mongodb.net/paperDB?retryWrites=true&w=majority',
+		collection: 'sessions'
+	}),
 	cookie: { maxAge: 1000*60*60 }
 }));
 
