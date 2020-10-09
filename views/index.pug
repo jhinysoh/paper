@@ -1,22 +1,28 @@
-extends layout
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet',href='/stylesheets/general.css')
+		link(rel='stylesheet',href='/stylesheets/index.css')
+		script(type="text/javascript",src='/javascripts/script.js')
 
-block content
-	.index-main
-		form#index-login(action="/auth",method="post")
-			fieldset
-				.center
-				input(type="text",name="email",autofocus,placeholder="이메일").index-input
+	body(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
+		.index-main
+			form#index-login(action="/auth",method="post")
+				fieldset
+					.center
+					input(type="text",name="email",autofocus,placeholder="이메일").index-input
+					br
+					input(type="password",name="pw",placeholder="비밀번호").index-input
+					p
+					input(type="checkbox",checked)#check_id
+					span 이메일저장
+					p
+					input(type="submit",value="로그인").index-btn2
+					input(type="button",onclick="location.href='/signup'",value="회원가입").index-btn2
+					p
+					#find-id ID/PW 찾기
+			.f1.white
+				h1 	PAPER
 				br
-				input(type="password",name="pw",placeholder="비밀번호").index-input
-				p
-				input(type="checkbox",checked)#check_id
-				span 이메일저장
-				p
-				input(type="submit",value="로그인").index-btn2
-				input(type="button",onclick="location.href='/signup'",value="회원가입").index-btn2
-				p
-				#find-id ID/PW 찾기
-		.f1.white
-			h1 	PAPER
-			br
-			b simple one for all Vet...
+				b simple one for all Vet...
