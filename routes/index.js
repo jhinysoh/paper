@@ -17,6 +17,8 @@ db.once('open', () => {
 //- 세션, 쿠키
 var connectMongo = require('connect-mongo')(session);
 router.use(session({
+	secure: true,
+	HttpOnly: true,
   secret: '1938haehgoqeuq8yqetjkhakdf',
   resave: false,
   saveUninitialized: true,
@@ -42,14 +44,17 @@ router.post('/auth', function(req, res){
 	if(email===authData.email && password===authData.password){
 		req.session.loggedin = true;
 		req.session.nickname = authData.nickname;
-		res.redirect('/');
+		req.session.save(function(){
+			res.redirect('/');
+		});
 	} else {	}
 });
 
 //- 로그아웃
 router.get('/logout', function(req, res) {
-	req.session.destroy();
-	res.redirect('/');
+	req.session.destroy(function(err){
+		res.redirect('/');
+	});
 });
 
 
