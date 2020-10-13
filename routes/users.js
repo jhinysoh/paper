@@ -1,12 +1,10 @@
-var express = require('express');
-var router = express.Router();
+//const express = require('express');
+//const router = express.Router();
 const mongoose = require("mongoose");
 
-
-
+/*
 // 병원정보
-var hospital = new mongoose.Schema({
-	id: { type: Number, unique: true },    		//아이디
+const Hospital = new mongoose.Schema({
 	number: { type: Number, unique: true },		//사업자번호
 	date: Date,                            		//가입일
 	name: String,                          		//병원명
@@ -18,22 +16,30 @@ var hospital = new mongoose.Schema({
             position: String,
             class: String }
 });
+module.exports = mongoose.model("hospitals", Hospital);
+*/
 
-//회원정보
-var member = new mongoose.Schema({
-  id: { type: Number, unique: true },    		//아이디
+// 직원정보
+const user = new mongoose.Schema({
 	date: Date,                            		//가입일
   email: { type: String, unique: true },		//이메일
+	password: String,
 	name: String,                          		//이름
 	nick: { type:String, unique: true },	  	//닉네임
-	tel: Number,                       		//전화번호
-	hospital: [ Number ],                     	//소속병원 id
-  lisence: Number
+	tel: { type: Number, unique: true },			//전화번호
+	lisence: { type: Number, unique: true },	//면허번호
+	hospital: Array	          								//소속병원 id, 직위, 직급
 });
 
+user.methods.validPassword = function( pwd ) {
+    return ( this.password === pwd );
+};
+
+module.exports = mongoose.model("users", user);
+
+/*
 // 고객정보
-var client = new mongoose.Schema({
-	id: Number,                            		//아이디
+const Client = new mongoose.Schema({
 	date: Date,                            		//가입일
 	member: { name: String,                 //이름, 닉네임, 이메일, 전화번호
               nick: String,
@@ -51,8 +57,8 @@ var client = new mongoose.Schema({
           character: String,
           status: String }
 });
+module.exports = mongoose.model("clients", Client);
 
-module.exports = mongoose.model("hospital", hospital);
-module.exports = mongoose.model("member", member);
-module.exports = mongoose.model("client", client);
+
 module.exports = router;
+*/

@@ -9,14 +9,15 @@ html
 
 	body(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
 		.paper-nav.f-row
-			.paper-nav1 찾기
-			.paper-nav1 내원목록
-			.paper-nav1 접수대
-			.paper-nav1 진료실
-			.paper-nav1 미용실
+			.paper-nav1 고객 F1
+			.paper-nav1 접수대 F2
+			.paper-nav1 진료실 F3
+			.paper-nav1 미용실 F4
 			.f1
-			b#nickname
-			span 사용자변경
+			b #{hospital}
+			b#nickname #{nick}
+			span 님
+			input(type="button",value="사용자변경").index-btn2
 			input(type="button",onclick="location.href='/logout'",value="로그아웃").index-btn2
 		.paper1.f-col.f3
 			include paper1

@@ -75,7 +75,6 @@ ul { margin-left:-10px }
 
 /* 입력 */
 input:not([type="button"]):not([type="checkbox"]) {
-	text-align:center;
 	font-family:'Nanum Gothic';
 	margin:1px
 	}

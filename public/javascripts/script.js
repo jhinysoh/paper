@@ -16,5 +16,3 @@ function signup_cancel() {
 		location.href='/';
 	} else { return false }
 }
-
-document.getElementById('nickname').appendChild(${nickname});
