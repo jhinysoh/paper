@@ -1,5 +1,8 @@
 body { background-color: white }
 
+
+/* 로그인 페이지 */
+
 fieldset { border:none }
 .index-main {
 	flex: 1;
@@ -39,8 +42,12 @@ fieldset { border:none }
 	margin-left: -1px
 }
 
+
+/* 회원가입 페이지 */
+
 .signup {
 	width: 600px;
+	height: 450px;
 	border:1px solid;
 	border-radius: 6px;
 	text-align: center
@@ -55,10 +62,17 @@ fieldset { border:none }
 .signup-nav {
 	display:inline-block;
 	width: 278px;
-	background-color: #f2f2f2;
+	background-color: #fff;
 	padding: 10px;
 	margin:1px;
 	font-size: 16px;
 	font-weight: bold;
-	cursor: pointer
+	pointer-events: none
 }
+.signup-nav1 {
+	background-color: #f2f2f2;
+	color: #6e6e6e;
+	cursor: pointer;
+	pointer-events: auto
+}
+.formHide { display:none }

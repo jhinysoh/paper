@@ -33,6 +33,9 @@ const passport = require('passport')
 
 router.use(passport.initialize());
 router.use(passport.session());
+const flash = require('connect-flash');										// Flash 메시지 사용. 세션에 1회성 저장되는 key:value 생성
+router.use(flash());
+const User = require('./users');													// user 스키마 가져오기
 
 passport.serializeUser(function(user, done) {
   done(null, { id: user.id, nick: user.nick, hospital: user.hospital[0].name });
@@ -41,28 +44,27 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-const User = require('./users');
-
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
       if (err) { return done(err); }
-      if (!user) { return done(null, false, { message: 'Incorrect username.' }) }
-      if (!user.validPassword(password)) { return done(null, false, { message: 'Incorrect password.' }) }
+			// passport.done()의 3번째 인자 'message'의 value는 session.error에 Flash로 저장
+      if (!user) { return done(null, false, { message: '이메일을 확인해주세요' }) }
+      if (!user.validPassword(password)) { return done(null, false, { message: '비밀번호를 확인해주세요' }) }
       return done(null, user);
     });
   }
 ));
 
 router.post('/auth',
-  passport.authenticate('local', {failureRedirect: '/'}),
-	function(req,res){
+  passport.authenticate('local', { failureRedirect: '/login',
+ 																		failureFlash: true }),
+	function(req, res) {
 		req.session.save(function(){
 			res.redirect('/')
 		})
 	}
 );
-
 
 //- 로그아웃
 router.get('/logout', function(req, res) {
@@ -75,22 +77,28 @@ router.get('/logout', function(req, res) {
 
 //- 메인 페이지
 router.get('/', function(req, res) {
-	console.log(req.session);
 	if(req.isAuthenticated()) {
 		let user = req.session.passport.user;
 		res.render(
 			'paper',
 			{ nick: user.nick, hospital: user.hospital }
-		)}
-	else {	res.render('index') }
+	)} else { res.render('index') }
 });
 
+//- 로그인 실패시
+router.get('/login', function(req, res) {
+	console.log(req.session);
+	let error = req.session.flash.error;
+	res.render( 'index', { note: error[error.length-1] } );
+});
 
 //- GET 회원가입
 router.get('/signup', function(req, res) {
   res.render('signup');
 });
+router.post('/membersignup',function(req, res) {
 
+});
 
 //- POST 회원가입
 

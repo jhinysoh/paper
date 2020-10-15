@@ -1,7 +1,7 @@
 doctype html
 html
 	head
-		title= title
+		title= "login"
 		link(rel='stylesheet',href='/stylesheets/general.css')
 		link(rel='stylesheet',href='/stylesheets/index.css')
 		script(type="text/javascript",src='/javascripts/script.js')
@@ -11,10 +11,10 @@ html
 			form#index-login(action="/auth",method="post")
 				fieldset
 					.center
-					input(type="text",name="username",autofocus,placeholder="이메일").index-input
+					input(type="text",name="username",required,autofocus,placeholder="이메일").index-input
 					br
-					input(type="password",name="password",placeholder="비밀번호").index-input
-					p
+					input(type="password",name="password",required,placeholder="비밀번호").index-input
+					p.red #{note}
 					input(type="checkbox",checked)#check_id
 					span 이메일저장
 					p

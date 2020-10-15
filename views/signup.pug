@@ -1,24 +1,26 @@
 doctype html
 html
 	head
-		title= title
+		title= "signup"
 		link(rel='stylesheet',href='/stylesheets/general.css')
 		link(rel='stylesheet',href='/stylesheets/index.css')
 		script(type="text/javascript",src='/javascripts/script.js')
 
-	body
+	body(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
 		.signup
 			.signup-title
 				h1 PAPER &nbsp &nbsp
 				b simple one for all Vet...
-			.signup-nav 회원가입
-			.signup-nav 동물병원등록
-			form
+			#userSignUp.signup-nav(onclick="signUpFormSwitch()") 회원가입
+			#hospitalSignUp.signup-nav.signup-nav1(onclick="signUpFormSwitch()") 동물병원등록
+
+			//- 회원가입 폼
+			form#userSignUpForm(action="/membersignup",method="post")
 				fieldset
 					span.red *
 					input(type="email",name="email",autofocus,required,placeholder="이메일").index-input.index-qual1
 					.index-qual2
-						input(type="button",value="인증하기").index-btn1
+						input(type="button",value="중복확인").index-btn1
 					br
 					span.red *
 					input(type="password",name="password",required,placeholder="비밀번호").index-input
@@ -45,4 +47,46 @@ html
 					br
 					span.white *
 					input(type="submit",value="가입").index-btn2
-					input(type="button",value="취소",onclick="signup_cancel()").index-btn2
+					input(type="button",value="취소",onclick="location.href='/'").index-btn2
+
+			//- 동물병원등록 폼
+			form#hospitalSignUpForm.formHide(action="/hospitalsignup",method="post")
+				fieldset
+					span.red *
+					input(type="number",name="bussinessNumber",autofocus,required,placeholder="사업자/법인번호").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="중복검사").index-btn1
+					br
+					span.red *
+					input(type="text",name="name",required,placeholder="동물병원명").index-input
+					br
+					span.red *
+					input(type="text",name="address",placeholder="주소").index-input
+					br
+					span.red *
+					input(type="number",name="tel",placeholder="전화번호").index-input
+					br
+					span.red *
+					input(type="text",name="chief",placeholder="대표자명").index-input
+					br
+					span.red *
+					input(type="number",name="chiefTel",placeholder="대표자휴대전화").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="인증하기").index-btn1
+					br
+					span.red *
+					input(type="email",name="email",placeholder="대표이메일").index-input
+					br
+					span.red *
+					input(type="number",name="",placeholder="사업자등록증사본").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="파일업로드").index-btn1
+					br
+					span.grey *
+					input(type="number",name="",placeholder="동물병원로고").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="파일업로드").index-btn1
+					br
+					span.white *
+					input(type="submit",value="등록").index-btn2
+					input(type="button",value="취소",onclick="location.href='/'").index-btn2

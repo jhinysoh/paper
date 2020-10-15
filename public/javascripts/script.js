@@ -11,8 +11,9 @@ window.onload = function(){
 
 }
 
-function signup_cancel() {
-	if(confirm("회원가입을 중단하시겠습니까?")==true){
-		location.href='/';
-	} else { return false }
+function signUpFormSwitch(){
+	document.getElementById("userSignUp").classList.toggle("signup-nav1");
+	document.getElementById("hospitalSignUp").classList.toggle("signup-nav1");
+	document.getElementById("userSignUpForm").classList.toggle("formHide");
+	document.getElementById("hospitalSignUpForm").classList.toggle("formHide")
 }

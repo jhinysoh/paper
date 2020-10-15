@@ -19,7 +19,7 @@ const Hospital = new mongoose.Schema({
 module.exports = mongoose.model("hospitals", Hospital);
 */
 
-// 직원정보
+// 직원(user)정보
 const user = new mongoose.Schema({
 	date: Date,                            		//가입일
   email: { type: String, unique: true },		//이메일
