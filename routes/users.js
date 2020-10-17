@@ -22,19 +22,14 @@ module.exports = mongoose.model("hospitals", Hospital);
 // 직원(user)정보
 const user = new mongoose.Schema({
 	date: Date,                            		//가입일
-  email: { type: String, unique: true },		//이메일
+  usernamee: { type: String, unique: true },	//이메일
 	password: String,
 	name: String,                          		//이름
-	nick: { type:String, unique: true },	  	//닉네임
-	tel: { type: Number, unique: true },			//전화번호
-	lisence: { type: Number, unique: true },	//면허번호
+	nick: { type: String, unique: true },	  	//닉네임
+	tel: { type: String, unique: true },			//전화번호
+	license: { type: Number, unique: true },	//면허번호
 	hospital: Array	          								//소속병원 id, 직위, 직급
 });
-
-user.methods.validPassword = function( pwd ) {
-    return ( this.password === pwd );
-};
-
 module.exports = mongoose.model("users", user);
 
 /*
