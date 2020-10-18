@@ -47,17 +47,19 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new LocalStrategy(
-	usernameField = 'email',
+	usernameField = 'email',															//- 로그인아이디로 이메일주소 사용
   function(username, password, done) {
     User.findOne({ email: username }, (err, user) => {
-      if (err) { return done(err); }
+			if (err) { return done(err) }
 			//- passport.done()의 3번째 인자 'message'의 value는 Flash()로 호출가능
-      if (!user) { return done(null, false, { message: '이메일을 확인해주세요' }) }
-      if (user.password !== crypto.createHash('sha512').update(password).digest('base64')) {
-				return done(null, false, { message: '비밀번호를 확인해주세요' })
-			}
-      return done(null, user);
-    });
+			if (!user) { return done(null, false, { message: '이메일을 확인해주세요' }) }
+			//- crypto+salt 암호화, 64비트길이의 salt 랜덤생성 -> base64문자열 salt로 변경
+			//- salt 108616번 반복, 비밀번호길이 64, 해시알고리즘 sha512
+			crypto.pbkdf2(password, user.password.salt, 108616, 64, 'sha512', (err, key) => {
+				if (user.password.key === key.toString('base64') ) { return done(null, user)}
+				else { return done(null, false, { message: '비밀번호를 확인해주세요' }) }
+			})
+  	})
   }
 ));
 
