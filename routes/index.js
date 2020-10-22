@@ -55,7 +55,7 @@ passport.use(new LocalStrategy(
 			if (!user) { return done(null, false, { message: '이메일을 확인해주세요' }) }
 			//- crypto+salt 암호화, 64비트길이의 salt 랜덤생성 -> base64문자열 salt로 변경
 			//- salt 108616번 반복, 비밀번호길이 64, 해시알고리즘 sha512
-			crypto.pbkdf2(password, user.password.salt, 108616, 64, 'sha512', (err, key) => {
+			crypto.pbkdf2(password, user.password.salt, 8616, 64, 'sha512', (err, key) => {
 				if (user.password.key === key.toString('base64') ) { return done(null, user)}
 				else { return done(null, false, { message: '비밀번호를 확인해주세요' }) }
 			})
@@ -110,7 +110,7 @@ router.post("/usersignup", (req, res, next) => {
 				//- crypto+salt 암호화, 64비트길이의 salt 랜덤생성 -> base64문자열 salt로 변경
 				//- salt 108616번 반복, 비밀번호길이 64, 해시알고리즘 sha512
 				crypto.randomBytes(64, (err, buf) => {
-					crypto.pbkdf2(req.body.password, buf.toString('base64'), 108616, 64, 'sha512', (err, key) => {
+					crypto.pbkdf2(req.body.password, buf.toString('base64'), 8616, 64, 'sha512', (err, key) => {
 						let newUser = new User({
 		        	_id: new mongoose.Types.ObjectId(),
 							date: Date.now(),

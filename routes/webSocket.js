@@ -12,4 +12,4 @@ module.exports = function(_server) {
     socket.on('error', error => { console.log(ip + ' 클라이언와 연결중 오류') });   //- 연결오류
     socket.on('close', () => { console.log(ip + ' 클라이언트 접속 종료')})      //- 연결종료
   })
-    }
+}

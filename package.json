@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./web.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-inline": "^23.0.0",
