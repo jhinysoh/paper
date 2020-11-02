@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const bodyParser = require("body-parser");								//- post로 전송받은 form값을 파싱
+const bodyParser = require("body-parser");							//- post로 전송받은 form값을 파싱
 router.use(bodyParser.urlencoded({extended: true}));
-const crypto = require('crypto');													//- 암호화 미들웨어
-const User = require('./users');													//- user 스키마 가져오기
-require('dotenv').config();																//- db주소와 계정등은 .env 환경변수에 저장
+const crypto = require('crypto');   								//- 암호화 미들웨어
+const User = require('./users');									//- user 스키마 가져오기
+require('dotenv').config(); 										//- db주소와 계정등은 .env 환경변수에 저장
 
 
 //- mongoDB 연결
@@ -36,7 +36,7 @@ const passport = require('passport')
 
 router.use(passport.initialize());
 router.use(passport.session());
-const flash = require('connect-flash');										//- Flash 메시지 사용. 세션에 1회성 저장되는 key:value 생성
+const flash = require('connect-flash');								//- Flash 메시지 사용. 세션에 1회성 저장되는 key:value 생성
 router.use(flash());
 
 passport.serializeUser(function(user, done) {
@@ -47,7 +47,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new LocalStrategy(
-	usernameField = 'email',															//- 로그인아이디로 이메일주소 사용
+	usernameField = 'email',						    			//- 로그인아이디로 이메일주소 사용
   function(username, password, done) {
     User.findOne({ email: username }, (err, user) => {
 			if (err) { return done(err) }
@@ -81,8 +81,8 @@ router.get('/', function(req, res) {
 			'paper',
 			{ nick: user.nick, hospital: user.hospital }
 	)} else	{
-			let flashMessage = req.flash();														//- 인증실패시 생성된 flash 메시지 읽어옴
-			let note= null;																						//- '/'로 처음 접속시 flash 메시지 없음
+			let flashMessage = req.flash();								//- 인증실패시 생성된 flash 메시지 읽어옴
+			let note= null;												//- '/'로 처음 접속시 flash 메시지 없음
 			if(flashMessage.error) { note= flashMessage.error[0] }
 			res.render( 'index', { note: note } )
 		}
@@ -106,26 +106,25 @@ router.post("/usersignup", (req, res, next) => {
   	.exec().then(user => {
       if (user !== null) {
         res.send('<script type="text/javascript">alert("이미 존재하는 이메일입니다."); window.location="/signup"; </script>');
-      } else {
-				//- crypto+salt 암호화, 64비트길이의 salt 랜덤생성 -> base64문자열 salt로 변경
+      } else {  //- crypto+salt 암호화, 64비트길이의 salt 랜덤생성 -> base64문자열 salt로 변경
 				//- salt 108616번 반복, 비밀번호길이 64, 해시알고리즘 sha512
 				crypto.randomBytes(64, (err, buf) => {
 					crypto.pbkdf2(req.body.password, buf.toString('base64'), 8616, 64, 'sha512', (err, key) => {
 						let newUser = new User({
-		        	_id: new mongoose.Types.ObjectId(),
+		        	        _id: new mongoose.Types.ObjectId(),
 							date: Date.now(),
-		          email: req.body.email,
+		                    email: req.body.email,
 							password: { key: key.toString('base64'), salt: buf.toString('base64') },
 							name: req.body.name,
 							nick: req.body.nick,
 							tel: req.body.tel,
 							license: req.body.license,
 							hospital: req.body.hospital
-		        });
-		      	newUser.save( res.redirect("/") ).catch(err => { console.log(err) })
+		                });
+	    	      	    newUser.save( res.redirect("/") ).catch(err => { console.log(err) })
 					})
 				})
-      }
+        }
     })
 });
 
