@@ -45,31 +45,31 @@ fieldset { border:none }
 
 /* 회원가입 페이지 */
 
-.signup {
+.signUp {
 	width: 600px;
-	height: 450px;
-	border:1px solid;
+	padding-bottom: 10px;
+    border:1px solid;
 	border-radius: 6px;
 	text-align: center
 }
-.signup-title {
+.signUpTitle {
 	width: 580px;
 	padding: 10px;
 	background-color: black;
 	color: white;
 	border-radius: 5px 5px 0 0;
 }
-.signup-nav {
+.signUpNav {
 	display:inline-block;
 	width: 278px;
 	background-color: #fff;
 	padding: 10px;
-	margin:1px;
+	margin:1px 1px 10px 1px;
 	font-size: 16px;
 	font-weight: bold;
-	pointer-events: none
+	pointer-events: none;
 }
-.signup-nav1 {
+.signUpNav1 {
 	background-color: #f2f2f2;
 	color: #6e6e6e;
 	cursor: pointer;

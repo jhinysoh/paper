@@ -7,15 +7,15 @@ html
 		script(type="text/javascript",src='/javascripts/index.js')
 
 	body(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
-		.signup
-			.signup-title#abc
+		.signUp
+			.signUpTitle
 				h1 PAPER &nbsp &nbsp
 				b simple one for all Vet...
-			#userSignUp.signup-nav 회원가입
-			#hospitalSignUp.signup-nav.signup-nav1 동물병원등록
+			.signUpNav 회원가입
+			.signUpNav.signUpNav1 동물병원등록
 
 			//- 회원가입 폼
-			form#userSignUpForm(action="/usersignup",method="post").signUpForm
+			form(action="/usersignup",method="post")
 				fieldset
 					span.red *
 					input(type="email",name="email",autofocus,required,placeholder="이메일").index-input
@@ -48,7 +48,7 @@ html
 					input(type="button",value="취소",onclick="location.href='/'").index-btn2
 
 			//- 동물병원등록 폼
-			form#hospitalSignUpForm.formHide(action="/hospitalsignup",method="post")
+			form(action="/hospitalsignup",method="post").formHide
 				fieldset
 					span.red *
 					input(type="number",name="bussinessNumber",autofocus,required,placeholder="사업자/법인번호").index-input.index-qual1
