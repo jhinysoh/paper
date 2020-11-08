@@ -1,21 +1,21 @@
 doctype html
 html
 	head
-		title= "signup"
+		title="signup"
 		link(rel='stylesheet',href='/stylesheets/general.css')
 		link(rel='stylesheet',href='/stylesheets/index.css')
-		script(type="text/javascript",src='/javascripts/script.js')
+		script(type="text/javascript",src='/javascripts/index.js')
 
 	body(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
 		.signup
-			.signup-title
+			.signup-title#abc
 				h1 PAPER &nbsp &nbsp
 				b simple one for all Vet...
-			#userSignUp.signup-nav(onclick="signUpFormSwitch()") 회원가입
-			#hospitalSignUp.signup-nav.signup-nav1(onclick="signUpFormSwitch()") 동물병원등록
+			#userSignUp.signup-nav 회원가입
+			#hospitalSignUp.signup-nav.signup-nav1 동물병원등록
 
 			//- 회원가입 폼
-			form#userSignUpForm(action="/usersignup",method="post")
+			form#userSignUpForm(action="/usersignup",method="post").signUpForm
 				fieldset
 					span.red *
 					input(type="email",name="email",autofocus,required,placeholder="이메일").index-input
