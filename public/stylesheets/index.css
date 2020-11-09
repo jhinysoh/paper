@@ -1,78 +1,109 @@
-body { background-color: white }
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script');
 
-
-/* 로그인 페이지 */
-
+/* 공통 */
+body {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	height: 98vh;
+	font: 14px NanumGothic;
+	color: #1B2631;
+	cursor: default;
+	background-color: white
+}
+.white { color: white }
+.red { color: red }
+h1 { font-family: Kaushan Script }
+[type=text],[type=password],[type=number],[type=email] {
+	width:255px;
+	height: 16px;
+	border: none;
+	background-color: #EBEDEF;
+	font-size:14px;
+	text-align: center;
+	padding:10px;
+	margin-bottom:2px
+}
+[type=button],[type=submit] {
+	width: 100px;
+	margin: 1px;
+	font: bold 14px NanumGothic
+}
 fieldset { border:none }
 .main {
 	flex: 1;
-	display:flex;
-	align-items:center;
-	background-color: black;
-	text-align:center;
+	display: flex;
+	align-items: center;
+	background-color: #1B2631;
+	border-radius: 2px;
+	padding:5px
+}
+.main1 { background-color: #CCD1D1 }
+
+/* 로그인 */
+.login {
+	width: 300px;
+	height: 220px;
+	background-color: #F8F9F9;
+	padding: 15px;
+	font-size: 14px;
+	text-align: right;
 	border-radius: 2px
 }
-.login {
-	width:300px;
-	background-color:white;
-	padding:10px;
-	margin:5px;
-	font-size:14px;
-	border-radius:2px
-	}
-.index-input {
-	width:250px;
-	border: none;
-	background-color: #F2F2F2;
-	font-size:14px;
-	padding:8px;
-	margin:1px
+.note {
+	height: 17px;
+	margin: 10px
 }
-.index-btn1 { width: 70px }
-.index-btn2 { width: 132px }
-.index-qual1 {
-	display: inline-block;
-	width: 170px
+.content {
+	flex: 1;
+	text-align: center;
+	color: white
 }
-.index-qual2 {
-	display: inline-block;
-	width: 80px;
-	background-color: #F2F2F2;
-	padding: 4px 0;
-	margin-left: -1px
-}
+.hide { display: none }
 
-
-/* 회원가입 페이지 */
-
+/* 회원가입 */
 .signUp {
-	width: 600px;
-	padding-bottom: 10px;
-    border:1px solid;
-	border-radius: 6px;
-	text-align: center
-}
-.signUpTitle {
-	width: 580px;
-	padding: 10px;
-	background-color: black;
-	color: white;
-	border-radius: 5px 5px 0 0;
+	width: 300px;
+	height: 220px;
+	background-color: #1B2631;
+	padding: 15px;
+	font-size: 14px;
+	color: #F2F4F4;
+	text-align: center;
+	border-radius: 2px
 }
 .signUpNav {
 	display:inline-block;
-	width: 278px;
-	background-color: #fff;
+	width: 270px;
+	background-color: #F2F4F4;
 	padding: 10px;
-	margin:1px 1px 10px 1px;
-	font-size: 16px;
-	font-weight: bold;
+	font: bold 16px NanumGothic;
+	color: #1B2631;
 	pointer-events: none;
 }
 .signUpNav1 {
-	background-color: #f2f2f2;
-	color: #6e6e6e;
+	background-color: #283747;
+	color: #AEB6BF;
 	cursor: pointer;
 	pointer-events: auto
 }
-.hide { display:none }
+.form1 {
+	display: inline-block;
+	width: 290px
+}
+.form2 {
+	display: inline-block;
+	width: 550px;
+	text-align: right;
+	padding: 5px
+}
+.qualify1 { width: 175px }
+.qualify2 {
+	width: 60px;
+	cursor: pointer;
+	font-weight: bold;
+	background-color: #E5E8E8
+}
