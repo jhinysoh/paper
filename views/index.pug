@@ -4,11 +4,12 @@ html
 		title= "login"
 		link(rel='stylesheet',href='/stylesheets/general.css')
 		link(rel='stylesheet',href='/stylesheets/index.css')
-		script(type="text/javascript",src='/javascripts/script.js')
+		script(type="text/javascript",src='/javascripts/index.js')
 
 	body(oncontextmenu='return false',onselectstart='return false',ondragstart='return false')
-		.index-main
-			form#index-login(action="/auth",method="post")
+
+		.main
+			form(action="/auth",method="post").login
 				fieldset
 					.center
 					input(type="text",name="username",required,autofocus,placeholder="이메일").index-input
@@ -19,10 +20,95 @@ html
 					span 이메일저장
 					p
 					input(type="submit",value="로그인").index-btn2
-					input(type="button",onclick="location.href='/signup'",value="회원가입").index-btn2
+					input(type="button",value="회원가입").index-btn2.goSignUp
 					p
 					#find-id ID/PW 찾기
 			.f1.white
 				h1 	PAPER
 				br
 				b simple one for all Vet
+
+		.signUp.hide
+			.signUpTitle
+				h1 PAPER &nbsp &nbsp
+				b simple one for all Vet...
+			.signUpNav 회원가입
+			.signUpNav.signUpNav1 동물병원등록
+
+			//- 회원가입 폼
+			form(action="/usersignup",method="post")
+				fieldset
+					span.red *
+					input(type="email",name="email",autofocus,required,placeholder="이메일").index-input
+					br
+					span.red *
+					input(type="password",name="password",required,placeholder="비밀번호").index-input
+					br
+					span.red *
+					input(type="password",placeholder="비밀번호확인").index-input
+					br
+					span.red *
+					input(type="text",name="name",placeholder="실명").index-input
+					br
+					span.red *
+					input(type="text",name="nick",placeholder="닉네임").index-input
+					br
+					span.red *
+					input(type="number",name="tel",placeholder="휴대전화").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="인증하기").index-btn1
+					br
+					span.red *
+					input(type="number",name="license",placeholder="면허번호").index-input
+					br
+					span.red *
+					input(type="text",name="hospital",placeholder="소속동물병원").index-input
+					br
+					span.white *
+					input(type="submit",value="가입").index-btn2
+					input(type="button",value="취소",onclick="location.href='/'").index-btn2.goSignUp
+
+			//- 동물병원등록 폼
+			form(action="/hospitalsignup",method="post").hide
+				fieldset
+					span.red *
+					input(type="number",name="bussinessNumber",autofocus,required,placeholder="사업자/법인번호").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="중복검사").index-btn1
+					br
+					span.red *
+					input(type="text",name="name",required,placeholder="동물병원명").index-input
+					br
+					span.red *
+					input(type="text",name="address",placeholder="주소").index-input
+					br
+					span.red *
+					input(type="number",name="tel",placeholder="전화번호").index-input
+					br
+					span.red *
+					input(type="text",name="chief",placeholder="대표자명").index-input
+					br
+					span.red *
+					input(type="number",name="chiefTel",placeholder="대표자휴대전화").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="인증하기").index-btn1
+					br
+					span.red *
+					input(type="email",name="email",placeholder="대표이메일").index-input
+					br
+					span.red *
+					input(type="number",name="",placeholder="사업자등록증사본").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="파일업로드").index-btn1
+					br
+					span.grey *
+					input(type="number",name="",placeholder="동물병원로고").index-input.index-qual1
+					.index-qual2
+						input(type="button",value="파일업로드").index-btn1
+					br
+					span.white *
+					input(type="submit",value="등록").index-btn2
+					input(type="button",value="취소",onclick="location.href='/'").index-btn2.goSignUp
+
+
+

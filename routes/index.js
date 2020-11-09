@@ -97,10 +97,6 @@ router.get('/logout', function(req, res) {
 
 
 //- 회원가입
-router.get('/signup', function(req, res) {
-  res.render('signup');
-});
-
 router.post("/usersignup", (req, res, next) => {
   User.findOne({ email: req.body.email })
   	.exec().then(user => {

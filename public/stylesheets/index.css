@@ -4,7 +4,7 @@ body { background-color: white }
 /* 로그인 페이지 */
 
 fieldset { border:none }
-.index-main {
+.main {
 	flex: 1;
 	display:flex;
 	align-items:center;
@@ -12,7 +12,7 @@ fieldset { border:none }
 	text-align:center;
 	border-radius: 2px
 }
-#index-login {
+.login {
 	width:300px;
 	background-color:white;
 	padding:10px;
@@ -75,4 +75,4 @@ fieldset { border:none }
 	cursor: pointer;
 	pointer-events: auto
 }
-.formHide { display:none }
+.hide { display:none }

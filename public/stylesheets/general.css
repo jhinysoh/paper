@@ -77,8 +77,8 @@ ul { margin-left:-10px }
 input:not([type="button"]):not([type="checkbox"]) {
 	font-family:'Nanum Gothic';
 	margin:1px
-	}
-input:focus:not([type="checkbox"])	{	outline: none }
+}
+input:focus:not([type="checkbox"]) { outline: none }
 input::placeholder {
 	font-weight: bold;
 	color: #A4A4A4;
@@ -91,20 +91,27 @@ input[type="button"] {
 	background-color:transparent;
 	font:bold 14px 'Nanum Gothic';
 	color:#2E2E2E;
-	}
+}
 input[type="button"]:hover,input[type="button"]:focus {
 	background-color:#2E2E2E;
 	color:#E6E6E6
-	}
+}
 
 /* 위치 */
-.f-row {
-	display:flex;
-	}
+.flexRow { display: flex }
+.flexColumn { display: flex; flex-direction: column }
+.flexCenter { align-items: center }
+.flexEnd { align-items: flex-end }
+.flex1 { flex: 1 }
+.flex2 { flex: 2 }
+.flex3 { flex: 3 }
+.flex4 { flex: 4 }
+
+.f-row { display:flex; }
 .f-col {
 	display: flex;
 	flex-direction: column
-	}
+}
 .f-cen { align-items: center }
 .f-end { align-items: flex-end }
 .f1 { flex: 1 }
