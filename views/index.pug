@@ -33,6 +33,7 @@ html
 				fieldset
 					.form1
 						input(type="email",name="email",autofocus,required,placeholder="이메일")
+						//.qualify
 						input(type="number",name="tel",placeholder="휴대전화").qualify1
 						input(type="text",disabled,value="인증하기").qualify2
 						input(type="password",name="password",required,placeholder="비밀번호")
@@ -42,9 +43,9 @@ html
 						input(type="text",name="nick",placeholder="닉네임")
 						input(type="number",name="license",placeholder="면허번호")
 						input(type="text",name="hospital",placeholder="소속동물병원")
-					br
 					.form2
 						input(type="submit",value="가입")
+						br
 						input(type="button",value="취소").goSignUp
 
 			//- 동물병원등록 폼
@@ -52,21 +53,26 @@ html
 				fieldset
 					.form1
 						input(type="text",name="name",required,placeholder="동물병원명")
-						input(type="number",name="bussinessNumber",autofocus,required,placeholder="사업자/법인번호").qualify1
-						input(type="text",disabled,value="중복검사").qualify2
+						.qualify
+							input(type="number",name="bussinessNumber",autofocus,required,placeholder="사업자/법인번호").qualify1
+							input(type="text",disabled,value="중복검사").qualify2
 						input(type="text",name="address",placeholder="주소")
 						input(type="number",name="tel",placeholder="전화번호")
 						input(type="email",name="email",placeholder="이메일")
 					.form1
 						input(type="text",name="chief",placeholder="대표자명")
-						input(type="number",name="chiefTel",placeholder="대표자휴대전화").qualify1
-						input(type="text",disabled,value="인증하기").qualify2
-						input(type="number",name="",placeholder="사업자등록증사본").qualify1
-						input(type="text",disabled,value="업로드").qualify2
-						input(type="number",name="",placeholder="개설신고필증사본").qualify1
-						input(type="text",disabled,value="업로드").qualify2
-						input(type="number",name="",placeholder="동물병원로고").qualify1
-						input(type="text",disabled,value="업로드").qualify2
+						.qualify
+							input(type="number",name="chiefTel",placeholder="대표자휴대전화").qualify1
+							input(type="text",disabled,value="인증하기").qualify2
+						.qualify
+							input(type="number",name="",placeholder="사업자등록증사본").qualify1
+							input(type="text",disabled,value="업로드").qualify2
+						.qualify
+							input(type="number",name="",placeholder="개설신고필증사본").qualify1                        
+							input(type="text",disabled,value="업로드").qualify2
+						.qualify
+							input(type="number",name="",placeholder="동물병원로고").qualify1
+							input(type="text",disabled,value="업로드").qualify2
 					.form2
 						input(type="submit",value="등록")
 						input(type="button",value="취소").goSignUp
