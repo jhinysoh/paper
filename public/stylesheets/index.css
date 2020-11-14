@@ -36,7 +36,11 @@ h1 { font-family: Kaushan Script }
 	margin: 1px;
 	font: bold 14px NanumGothic
 }
-fieldset { border:none }
+fieldset {
+	display: flex;
+	flex-wrap: wrap;
+	border:none
+}
 .main {
 	flex: 1;
 	display: flex;
@@ -95,31 +99,24 @@ fieldset { border:none }
 	pointer-events: auto
 }
 .form1 {
-	display: inline-block;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+//	display: inline-block;
 	width: 280px
 }
 .form2 {
 	display: inline-block;
 	width: 110px;
 }
-.qualify {
-    display: flex;
-    align-items: 
-    width: 275px;
-    height: 36px;
-    margin-bottom: 2px;
-    overflow: hidden
-}
 .qualify1 {
-    display: inline-block;
     width: 175px;
     border-radius: 3px 0 0 3px
 }
 .qualify2 {
-    display: inline-block;
-	width: 60px;
-	cursor: pointer;
-	font-weight: bold;
+		width: 60px;
+		cursor: pointer;
+		font-weight: bold;
     background-color: #E5E8E8;
     border-radius: 0 3px 3px 0
 }
