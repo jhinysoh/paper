@@ -37,6 +37,7 @@ h1 { font-family: Kaushan Script }
 	font: bold 14px NanumGothic
 }
 fieldset {
+	flex: 1;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -100,6 +101,7 @@ fieldset {
 	cursor: pointer;
 	pointer-events: auto
 }
+.signUpForm { flex: 1 }
 .form1 {
 	display: flex;
 	align-items: flex-start;
