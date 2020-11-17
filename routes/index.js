@@ -127,7 +127,7 @@ router.post("/usersignup", (req, res, next) => {
 
 //웹소켓 연결
 const wss = require('ws').Server;
-const wsServer = new wss({port:3000});
+const wsServer = new wss({server:_server});
 
 wsServer.on('connection', (ws)=>{
 	console.log('websocket connected');

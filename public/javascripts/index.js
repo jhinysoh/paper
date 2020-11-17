@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded',function(){
 
     // 웹소켓 연결
-    const ws = new WebSocket('ws://localhost:3000');
+    const ws = new WebSocket('wsUri');
 
     // 회원가입페이지 보이기, 숨기기
     const goSignUp = document.querySelectorAll('.goSignUp');
