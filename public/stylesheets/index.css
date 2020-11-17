@@ -68,6 +68,8 @@ fieldset {
 	height: 17px;
 	margin: 10px
 }
+.find { cursor: pointer }
+.find:hover { font-weight: bold }
 .content,#userSignUp,#hospitalSignUp {
 	flex: 1;
 	text-align: center;

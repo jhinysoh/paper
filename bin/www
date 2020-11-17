@@ -54,7 +54,3 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
-
-//- 웹소켓 설정
-const webSocket = require('../routes/webSocket.js');
-webSocket(server);

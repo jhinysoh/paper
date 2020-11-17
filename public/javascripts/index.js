@@ -1,14 +1,17 @@
 window.addEventListener('DOMContentLoaded',function(){
 
+    // 웹소켓 연결
+    const ws = new WebSocket('ws://localhost:3000');
+
     // 회원가입페이지 보이기, 숨기기
     const goSignUp = document.querySelectorAll('.goSignUp');
     goSignUp.forEach( (goSignUp, i) => {
       goSignUp.addEventListener('click',function(){
-        document.querySelectorAll('.main').forEach( (main) => {
-          main.classList.toggle('hide');
-          main.querySelectorAll('input:not([type=submit]):not([type=button])')
+        document.querySelectorAll('.main').forEach( (item) => {
+          item.classList.toggle('hide');
+          item.querySelectorAll('input:not([type=submit]):not([type=button])')
             .forEach( (item) => { item.value='' });
-          main.querySelector('form:not(.hide) input').focus()
+          item.querySelector('form:not(.hide) input').focus()
         })
       })
     });
@@ -30,23 +33,37 @@ window.addEventListener('DOMContentLoaded',function(){
     });
 
     // 이메일 확인
-    const regId = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
+    const regId = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;             // 이메일 정규식
     const email = document.querySelectorAll('input[type=email]');
     email.forEach((item, i) => {
-      item.addEventListener('blur',function(){
-        if( regId.test(this.value)===false && this.value!=='' ){
-          this.value = '';
-          this.style.backgroundColor = '#FADBD8';
-          this.placeholder = '이메일형식으로 입력해주세요'
-        } else{
-          this.style.backgroundColor = '';
-          this.placeholder = '이메일'
-        }
-      })
+      if(i!==0){
+        item.addEventListener('blur',function(){
+          if( regId.test(this.value)===true){
+            this.style.backgroundColor = '';
+            this.placeholder = '이메일';
+            // 중복여부 확인
+            if(i===1){
+              ws.send(JSON.stringify({ event:'newEmail',message:this.value }));
+              ws.onmessage = function(event){
+                let msg = JSON.parse(event.data);
+                if(msg.event==='newEmail' && msg.message==='existing'){
+                  item.value = '';
+                  item.style.backgroundColor = '#FADBD8';
+                  item.placeholder = '이미 가입된 이메일입니다'
+                }
+              }
+            }
+          } else{
+            this.value = '';
+            this.style.backgroundColor = '#FADBD8';
+            this.placeholder = '이메일형식으로 입력해주세요'
+          }
+        })
+      }
     });
 
     // 비밀번호 확인
-    const regPw = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/
+    const regPw = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/;         // 비밀번호 정규식
     const password = document.querySelectorAll('.password');
     password[0].addEventListener('blur',function(){
       if( regPw.test(this.value)===false && this.value!=='' ){
