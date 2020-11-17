@@ -124,7 +124,7 @@ router.post("/usersignup", (req, res, next) => {
     })
 });
 
-
+/*
 //웹소켓 연결
 const wss = require('ws').Server;
 const wsServer = new wss({port:3000});
@@ -145,7 +145,7 @@ wsServer.on('connection', (ws)=>{
 	});
 
 });
-
+*/
 
 
 
