@@ -16,10 +16,10 @@ html
 						input(type="checkbox",checked)
 						span 이메일저장
 					.note.red #{note}
-					br
-					input(type="submit",value="로그인")
-					input(type="button",value="회원가입").goSignUp
-					.note ID/PW 찾기
+					.note
+						input(type="submit",value="로그인")
+						input(type="button",value="회원가입").goSignUp
+					.note.find ID/PW 찾기
 			.content
 				h1 	PAPER
 				h3 simple one for all Vet
@@ -28,16 +28,16 @@ html
 			.signUp
 				h1 PAPER
 				.signUpNav 신규회원등록
-				.signUpNav.signUpNav1 동물병원등록
+				.signUpNav.signUpNavDark 동물병원등록
 			//- 회원가입 폼
-			form(action="/usersignup",method="post").content
+			form(action="/usersignup",method="post").signUpForm
 				fieldset
 					.form1
-						input(type="email",name="email",autofocus,required,placeholder="이메일")
+						input(type="email",name="email",required,placeholder="이메일")
 						input(type="number",name="tel",placeholder="휴대전화").qualify1
-						input(type="text",disabled,value="인증하기").qualify2
-						input(type="password",name="password",required,placeholder="비밀번호")
-						input(type="password",placeholder="비밀번호확인")
+						.qualify2 인증하기
+						input(type="password",name="password",required,placeholder="비밀번호").password
+						input(type="password",placeholder="비밀번호확인").password
 					.form1
 						input(type="text",name="name",placeholder="실명")
 						input(type="text",name="nick",placeholder="닉네임")
@@ -45,29 +45,28 @@ html
 						input(type="text",name="hospital",placeholder="소속동물병원")
 					.form2
 						input(type="submit",value="가입")
-						br
 						input(type="button",value="취소").goSignUp
 
 			//- 동물병원등록 폼
-			form(action="/hospitalsignup",method="post").content.hide
+			form(action="/hospitalsignup",method="post").signUpForm.hide
 				fieldset
 					.form1
 						input(type="text",name="name",required,placeholder="동물병원명")
 						input(type="number",name="bussinessNumber",autofocus,required,placeholder="사업자/법인번호").qualify1
-						input(type="text",disabled,value="중복검사").qualify2
+						.qualify2 중복검사
 						input(type="text",name="address",placeholder="주소")
 						input(type="number",name="tel",placeholder="전화번호")
 						input(type="email",name="email",placeholder="이메일")
 					.form1
 						input(type="text",name="chief",placeholder="대표자명")
 						input(type="number",name="chiefTel",placeholder="대표자휴대전화").qualify1
-						input(type="text",disabled,value="인증하기").qualify2
+						.qualify2 인증하기
 						input(type="number",name="",placeholder="사업자등록증사본").qualify1
-						input(type="text",disabled,value="업로드").qualify2
+						.qualify2 업로드
 						input(type="number",name="",placeholder="개설신고필증사본").qualify1                        
-						input(type="text",disabled,value="업로드").qualify2
+						.qualify2 업로드
 						input(type="number",name="",placeholder="동물병원로고").qualify1
-						input(type="text",disabled,value="업로드").qualify2
+						.qualify2 업로드
 					.form2
 						input(type="submit",value="등록")
 						input(type="button",value="취소").goSignUp

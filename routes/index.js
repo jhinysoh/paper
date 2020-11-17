@@ -125,6 +125,28 @@ router.post("/usersignup", (req, res, next) => {
 });
 
 
+//웹소켓 연결
+const wss = require('ws').Server;
+const wsServer = new wss({port:3000});
+
+wsServer.on('connection', (ws)=>{
+	console.log('websocket connected');
+
+	// 이메일 중복 검사
+	ws.on('message',(msg)=>{
+		let message = JSON.parse(msg);
+		if(message.event=='newEmail'){
+			User.findOne({email: message.message}).exec().then(user =>{
+				if(user){
+				ws.send(JSON.stringify({event:'newEmail',message:'existing'}))
+				}
+			})
+		}
+	});
+
+});
+
+
 
 
 module.exports = router;

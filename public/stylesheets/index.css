@@ -37,8 +37,10 @@ h1 { font-family: Kaushan Script }
 	font: bold 14px NanumGothic
 }
 fieldset {
+	flex: 1;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	border:none
 }
 .main {
@@ -62,10 +64,13 @@ fieldset {
 	border-radius: 2px
 }
 .note {
+	width: 255px;
 	height: 17px;
 	margin: 10px
 }
-.content {
+.find { cursor: pointer }
+.find:hover { font-weight: bold }
+.content,#userSignUp,#hospitalSignUp {
 	flex: 1;
 	text-align: center;
 	color: white
@@ -92,17 +97,17 @@ fieldset {
 	color: #1B2631;
 	pointer-events: none;
 }
-.signUpNav1 {
+.signUpNavDark {
 	background-color: #283747;
 	color: #AEB6BF;
 	cursor: pointer;
 	pointer-events: auto
 }
+.signUpForm { flex: 1 }
 .form1 {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	flex-wrap: wrap;
-//	display: inline-block;
 	width: 280px
 }
 .form2 {
@@ -114,9 +119,14 @@ fieldset {
     border-radius: 3px 0 0 3px
 }
 .qualify2 {
-		width: 60px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 80px;
+		height: 36px;
 		cursor: pointer;
 		font-weight: bold;
+		color: grey;
     background-color: #E5E8E8;
     border-radius: 0 3px 3px 0
 }
