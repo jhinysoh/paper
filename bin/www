@@ -12,10 +12,6 @@ app.set('port', port);
 /* Create HTTP server. */
 const server = http.createServer(app);
 
-//- 웹소켓 연결
-//const webSocket = require('../routes/webSocket');
-//webSocket(server);
-
 /* Listen on provided port, on all network interfaces. */
 server.listen(port);
 server.on('error', onError);

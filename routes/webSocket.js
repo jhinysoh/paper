@@ -1,4 +1,4 @@
-
+/*
 const server = function(_server){
     const wss = new wsModule.Server( {server:_server} );                              // 웹소켓 서버 생성
     wss.on('connection', (ws,req)=>{                                                  // 클라이언트 접속시
@@ -26,3 +26,5 @@ const server = function(_server){
 }
 
 module.exports = server
+
+*/

@@ -114,8 +114,25 @@ router.post("/usersignup", (req, res, next)=>{
 const webSocket = require('ws').Server;
 const wss = new webSocket( {port:12506} );
 wss.on('connection', (ws, req)=>{
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;        //- 사용자 ip 파악
-    console.log(ip+' 접속');
+	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;        //- 사용자 ip
+	console.log(ip+' 접속');
+	ws.on('message', evt=>{                                                         // 메세지를 받았을때
+				let msg = JSON.parse(evt);
+				if(msg.findEmail){                                            //- 이메일 중복 확인
+					console.log(msg);
+					User.findOne( {email:msg.findEmail} ).exec().then(user=>{
+						if(user) ws.send(JSON.stringify( {findEmail:true} ));
+						else ws.send(JSON.stringify( {findEmail:false} ))
+					})
+				}
+				if(msg.newTel){                                                 //- 휴대전화번호 중복 확인
+					User.findOne( {tel:msg.newTel} ).exec().then(user=>{
+						if(!user) ws.send(JSON.stringify( {newTel:true} )) })
+				}
+		});
+		ws.on('error', error=>{ console.log(ip+' 연결중 오류 : '+error) });             // 오류발생시
+		ws.on('close', ()=>{ console.log(ip+' 연결종료') })                             // 접속종료시
+
 });
 
 
