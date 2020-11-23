@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', ()=>{
 
-    const ws = new WebSocket('ws://localhost:8080');                                //- 웹소켓 연결
+    const ws = new WebSocket('ws://localhost:12506');                               //- 웹소켓 연결
     const regEmail = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;                //- 이메일 정규식
     const regPw = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/;                     //- 비밀번호 정규식
 

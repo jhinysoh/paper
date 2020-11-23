@@ -1,11 +1,3 @@
-const mongoose = require('mongoose');
-const User = require('./users');              							    	//- user 스키마 가져오기
-require('dotenv').config(); 										//- db주소와 계정등은 .env 환경변수에 저장
-const dbURL = process.env.dbURL;
-mongoose.set('useCreateIndex', true);
-mongoose.connect(dbURL, {useNewUrlParser:true,useUnifiedTopology:true});
-mongoose.connection.on('error', console.error.bind(console, "connection error:"));
-mongoose.connection.once('open', ()=> console.log("DB connected") );const wsModule = require('ws');
 
 const server = function(_server){
     const wss = new wsModule.Server( {server:_server} );                              // 웹소켓 서버 생성

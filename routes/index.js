@@ -114,8 +114,7 @@ router.post("/usersignup", (req, res, next)=>{
 const webSocket = require('ws').Server;
 const wss = new webSocket( {port:12506} );
 wss.on('connection', (ws, req)=>{
-    console.log('socket on');
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;        // 사용자이 ip 파악
+    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;        //- 사용자 ip 파악
     console.log(ip+' 접속');
 });
 
