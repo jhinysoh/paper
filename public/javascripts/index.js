@@ -1,8 +1,8 @@
 window.addEventListener('DOMContentLoaded', ()=>{
 
-  const ws = new WebSocket('ws://127.0.0.1:12506');                               //- 웹소켓 연결
-  const regEmail = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;                //- 이메일 정규식
-  const regPw = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/;                     //- 비밀번호 정규식
+  const ws = new WebSocket('ws://localhost:8080');									//- 웹소켓 연결
+  const regEmail = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;					//- 이메일 정규식
+  const regPw = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/;						//- 비밀번호 정규식
 
   //- 웹소켓 메세지 수신
   ws.onmessage = (evt)=>{
@@ -10,18 +10,32 @@ window.addEventListener('DOMContentLoaded', ()=>{
     if(msg.findEmail===false){
       loginEmail.value = '';
       loginEmail.style.backgroundColor = '#FADBD8';
-      loginEmail.placeholder = '가입되지않은 이메일입니다'
+      loginEmail.placeholder = '가입되지않은 이메일입니다';
+      loginEmail.focus()
+    }
+    if(msg.findEmail===true){
+		querySelectorAll('.signUp input[type=email]').forEach( item=>{
+            item.value ='';
+            item.style.backgroundColor = '#FADBD8';
+            item.placeholder = '이미 가입된 이메일입니다';
+            item.focus()
+        })
     }
   }
 
   //- 로그인 이메일 확인
   const loginEmail = document.querySelector('.login input[type=email]');
   loginEmail.addEventListener('blur', ()=>{
-    if(regEmail.test(loginEmail.value)===true) ws.send(JSON.stringify( {findEmail:loginEmail.value} ));
-//    else if( loginEmail.value===''){
-//      loginEmail.style.backgroundColor = '';
-//      loginEmail.placeholder = '이메일'
-     else{
+    if(regEmail.test(loginEmail.value)===true){
+        ws.send(JSON.stringify( {findEmail:loginEmail.value} ));
+        loginEmail.style.backgroundColor = '';
+        loginEmail.placeholder = '이메일'
+    }
+    else if(loginEmail.value===''){
+      loginEmail.style.backgroundColor = '';
+      loginEmail.placeholder = '이메일'
+    }
+    else{
       loginEmail.value = '';
       loginEmail.style.backgroundColor = '#FADBD8';
       loginEmail.placeholder = '이메일형식을 입력해주세요'
@@ -55,6 +69,10 @@ window.addEventListener('DOMContentLoaded', ()=>{
   });
 
     // 회원가입 이메일 확인
+	document.querySelectorAll('.signUp input[type=email]').forEach( item=>{
+        
+    })
+
 //    const email = document.querySelectorAll('input[type=email]');
 //      signUpForm.forEach( (item, i)=>{
 /*

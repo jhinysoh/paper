@@ -1,19 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const bodyParser = require("body-parser");							//- post로 전송받은 form값을 파싱
-router.use(bodyParser.urlencoded({extended: true}));
+router.use(bodyParser.urlencoded( {extended: true} ));
 const crypto = require('crypto');   								//- 암호화 미들웨어
-const User = require('./users');									//- user 스키마 가져오기
+const {User} = require('./mongoDB');									//- DB정보, 스키마 가져오기
 require('dotenv').config(); 										//- db주소와 계정등은 .env 환경변수에 저장
-
-
-//- mongoDB 연결
-const mongoose = require('mongoose');
 const dbURL = process.env.dbURL;
-mongoose.set('useCreateIndex', true);
-mongoose.connect(dbURL, {useNewUrlParser:true,useUnifiedTopology:true});
-mongoose.connection.on('error', console.error.bind(console, "connection error:"));
-mongoose.connection.once('open', ()=> console.log("DB connected") );
 
 
 //- 세션, 쿠키
@@ -30,14 +22,15 @@ router.use(session({
 }));
 
 
-//- 패스포트 로그인 구현
+//- 패스포트 로그인
 const passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
 router.use(passport.initialize());
 router.use(passport.session());
 const flash = require('connect-flash');								//- Flash 메시지 사용. 세션에 1회성 저장되는 key:value 생성
 router.use(flash());
 
-//- 세션에 저장하고 이용하고 유지할 항목으로 유저닉네임, 소속병원이름 사용
+
+//- 세션에 저장, 이용, 유지되는 항목 : 닉네임, 소속병원
 passport.serializeUser( (user, done)=> done(null, {nick:user.nick,hospital:user.hospital[0].name}) );
 passport.deserializeUser( (user, done)=> done(null, user) );
 
@@ -57,6 +50,7 @@ passport.use(new LocalStrategy(
   	    })
     }
 ));
+
 
 router.post('/auth',
     passport.authenticate('local', { failureRedirect:'/', failureFlash:true }),
@@ -109,32 +103,6 @@ router.post("/usersignup", (req, res, next)=>{
         })
     })
 });
-
-
-const webSocket = require('ws').Server;
-const wss = new webSocket( {port:12506} );
-wss.on('connection', (ws, req)=>{
-	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;        //- 사용자 ip
-	console.log(ip+' 접속');
-	ws.on('message', evt=>{                                                         // 메세지를 받았을때
-				let msg = JSON.parse(evt);
-				if(msg.findEmail){                                            //- 이메일 중복 확인
-					console.log(msg);
-					User.findOne( {email:msg.findEmail} ).exec().then(user=>{
-						if(user) ws.send(JSON.stringify( {findEmail:true} ));
-						else ws.send(JSON.stringify( {findEmail:false} ))
-					})
-				}
-				if(msg.newTel){                                                 //- 휴대전화번호 중복 확인
-					User.findOne( {tel:msg.newTel} ).exec().then(user=>{
-						if(!user) ws.send(JSON.stringify( {newTel:true} )) })
-				}
-		});
-		ws.on('error', error=>{ console.log(ip+' 연결중 오류 : '+error) });             // 오류발생시
-		ws.on('close', ()=>{ console.log(ip+' 연결종료') })                             // 접속종료시
-
-});
-
 
 
 module.exports = router;
