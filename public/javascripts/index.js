@@ -1,52 +1,78 @@
 window.addEventListener('DOMContentLoaded', ()=>{
 
-  const ws = new WebSocket('ws://localhost:8080');									//- 웹소켓 연결
-  const regEmail = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;					//- 이메일 정규식
-  const regPw = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/;						//- 비밀번호 정규식
+  const ws= new WebSocket('ws://localhost:8080');				            				   	//- 웹소켓 연결
+  const regEmail= /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;			     	  	//- 이메일 정규식
+  const regPw= /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/;					        	//- 비밀번호 정규식
+  const regCell= /^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/;              //- 휴대전화 정규식
 
   //- 웹소켓 메세지 수신
-  ws.onmessage = (evt)=>{
-    let msg = JSON.parse(evt.data);
-    if(msg.findEmail===false){
-      loginEmail.value = '';
-      loginEmail.style.backgroundColor = '#FADBD8';
-      loginEmail.placeholder = '가입되지않은 이메일입니다';
-      loginEmail.focus()
+  ws.onmessage= (evt)=>{
+    let msg= JSON.parse(evt.data);
+    if(msg.userEmail===false){                                                  //- 로그인: 가입되지않은 메일
+      let item= document.querySelector('.main:not(.hide) .login input');
+      item.value= '';
+      item.style.backgroundColor= '#FADBD8';
+      item.placeholder= '가입되지않은 이메일입니다';
+      item.focus()
     }
-    if(msg.findEmail===true){
-		querySelectorAll('.signUp input[type=email]').forEach( item=>{
-            item.value ='';
-            item.style.backgroundColor = '#FADBD8';
-            item.placeholder = '이미 가입된 이메일입니다';
+    document.querySelectorAll('.main:not(.hide) .signUpForm input').forEach((item,i)=>{
+      switch(i){
+        case 0:                                                                 //- 회원가입: 가입된 메일여부 확인
+          if(msg.userEmail===true){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '가입된 이메일입니다';
             item.focus()
-        })
-    }
+          }
+          break
+        case 1:                                                                 //- 회원가입: 등록된 전화여부 확인
+          if(msg.userTel===true){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '등록된 번호입니다';
+            item.focus()
+          }
+          break
+        case 5:                                                                 //- 회원가입: 닉네임 중복 확인
+          if(msg.userNick===true){
+            item.value='';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '사용중인 닉네임입니다';
+            item.focus()
+          }
+          break
+        case 6:                                                                 //- 회원가입: 면허번호 확인
+          if(msg.userLicense===true){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '등록된 번호입니다';
+            item.focus()
+          }
+          break
+      }
+    });
   }
 
   //- 로그인 이메일 확인
-  const loginEmail = document.querySelector('.login input[type=email]');
-  loginEmail.addEventListener('blur', ()=>{
-    if(regEmail.test(loginEmail.value)===true){
-        ws.send(JSON.stringify( {findEmail:loginEmail.value} ));
-        loginEmail.style.backgroundColor = '';
-        loginEmail.placeholder = '이메일'
+  const loginEmail= document.querySelector('.login input');
+  loginEmail.addEventListener('blur',()=>{
+    if(regEmail.test(loginEmail.value)===false && loginEmail.value!==''){
+      loginEmail.value= '';
+      loginEmail.style.backgroundColor= '#FADBD8';
+      loginEmail.placeholder= '이메일을 입력해주세요';
+      loginEmail.focus()
+    }else{
+      if(loginEmail.value!=='') ws.send(JSON.stringify( {userEmail:loginEmail.value} ))
+      loginEmail.style.backgroundColor= '';
+      loginEmail.placeholder= '이메일'
     }
-    else if(loginEmail.value===''){
-      loginEmail.style.backgroundColor = '';
-      loginEmail.placeholder = '이메일'
-    }
-    else{
-      loginEmail.value = '';
-      loginEmail.style.backgroundColor = '#FADBD8';
-      loginEmail.placeholder = '이메일형식을 입력해주세요'
-    }
-  });
+  })
 
   //- 회원가입페이지 보이기, 숨기기
-  document.querySelectorAll('.goSignUp').forEach( (item, i)=>{
-    item.addEventListener('click', ()=>{
-      item.querySelectorAll('input:not([type=submit]):not([type=button])').forEach( item=> item.value = '' );
-      document.querySelectorAll('.main').forEach( (item)=>{
+  document.querySelectorAll('.goSignUp').forEach(item=>{
+    item.addEventListener('click',()=>{
+      document.querySelectorAll('input:not([type=submit]):not([type=button])').forEach(item=> item.value= '' );
+      document.querySelectorAll('.main').forEach(item=>{
         item.classList.toggle('hide');
         if(item.classList!=='hide') item.querySelector('form:not(.hide) input').focus();
       })
@@ -56,11 +82,11 @@ window.addEventListener('DOMContentLoaded', ()=>{
   //- 회원가입, 병원등록 토글
   const signUpNav = document.querySelectorAll('.signUpNav');
   const signUpForm = document.querySelectorAll('.signUpForm');
-  signUpNav.forEach( (item, i)=>{
+  signUpNav.forEach((item,i)=>{
     item.addEventListener('click',()=>{
-      signUpNav.forEach( (nav)=> nav.classList.toggle('signUpNavDark') );
-      signUpForm.forEach( (nav)=> nav.classList.toggle('hide') );
-      signUpForm[i].querySelectorAll('input:not([type=submit]):not([type=button])').forEach( (item)=>{
+      signUpNav.forEach(item=> item.classList.toggle('signUpNavDark') );
+      signUpForm.forEach(item=> item.classList.toggle('hide') );
+      signUpForm[i].querySelectorAll('input:not([type=submit]):not([type=button])').forEach(item=>{
         item.value = '';
         item.style.backgroundColor = ''
       });
@@ -68,60 +94,151 @@ window.addEventListener('DOMContentLoaded', ()=>{
     });
   });
 
-    // 회원가입 이메일 확인
-	document.querySelectorAll('.signUp input[type=email]').forEach( item=>{
-        
-    })
-
-//    const email = document.querySelectorAll('input[type=email]');
-//      signUpForm.forEach( (item, i)=>{
-/*
-//      if(i!==0){                                                              //- [0]:로그인, [1]:회[22]
-        item[i].querySelector('input[type=email').addEventListener('blur',()=>{
-            if( regEmail.test(this.value)===false && this.value!=='' ){
-                this.value = '';
-                this.style.backgroundColor = '#FADBD8';
-                this.placeholder ='이메일형식으로 입력해주세요';
-                this.focus()
-            } else if( regId.test(this.value)===true ){
-                if(i===1){
-                    ws.send(JSON.stringify({ event:'newEmail',message:this.value }));   //- 중복여부 확인
-                    ws.onmessage = function(event){
-                        let msg = JSON.parse(event.data);
-                        if(msg.event==='newEmail' && msg.message==='existing'){
-                            item.value = '';
-                            item.style.backgroundColor = '#FADBD8';
-                            item.placeholder = '이미 가입된 이메일입니다'
-                        }
-                    }
-                }
-            } else{ this.style.backgroundColor = ''; this.placeholder = '이메일' }
-        })
-    });
-*/
-    // 비밀번호 입력
-    const password = document.querySelectorAll('.password');            // 정규식 일치확인
-    password[0].addEventListener('blur',()=>{
-      if( regPw.test(this.value)===false && this.value!=='' ){
-        this.value = '';
-        this.style.backgroundColor = '#FADBD8';
-        this.placeholder ='영문자/숫자/특수문자 포함 8자이상';
-        this.focus()
-      } else{
-        this.style.backgroundColor = '';
-        this.placeholder = '비밀번호'
+  //- 회원가입: 데이터 유효성 검증
+  document.querySelectorAll('.signUpForm')[0].querySelectorAll('input').forEach((item,i)=>{
+    item.addEventListener('blur',()=>{
+      switch(i){
+        case 0:                                                                 //- 유저: 이메일
+          if(regEmail.test(item.value)===false && item.value!==''){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '이메일을 입력해주세요';
+            item.focus()
+          }else{
+            if(item.value!=='') ws.send(JSON.stringify( {userEmail:item.value} ))
+            item.style.backgroundColor= '';
+            item.placeholder= '이메일'
+          }
+          break
+        case 1:                                                                 //- 유저: 휴대전화
+          let tel= item.value.replace(/[^0-9]/g,'');
+          if(regCell.test(tel)===false && item.value!==''){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '휴대전화번호를 입력해주세요';
+            focus()
+          }else{
+            if(tel!=='') ws.send(JSON.stringify( {userTel:tel} ))
+            item.value= tel;
+            item.style.backgroundColor= '';
+            item.placeholder= '휴대전화'
+          }
+          break
+        case 2:                                                                 //- 유저: 비밀번호
+          if(regPw.test(item.value)===false && item.value!==''){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder='영문자/숫자/특수문자 포함 8자이상';
+            item.focus()
+          }else{
+            item.style.backgroundColor= '';
+            item.placeholder= '비밀번호'
+          }
+          break
+        case 3:                                                                 //- 유저: 비밀번호 확인
+          let pw= document.querySelector('.signUpForm input[type=password]').value;
+          if(item.value!==pw && item.value!==''){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder='비밀번호가 일치하지않습니다';
+            item.focus()
+          }else{
+            item.style.backgroundColor= '';
+            item.placeholder= '비밀번호확인'
+          }
+          break
+        case 5:                                                                 //- 유저: 닉네임
+          if(item.value!=='') ws.send(JSON.stringify( {userNick:item.value} ))
+          item.style.backgroundColor= '';
+          item.placeholder= '닉네임'
+          break
+        case 6:                                                                 //- 유저: 면허번호
+          if(item.value!=='') ws.send(JSON.stringify( {userLicense:item.value} ))
+          item.style.backgroundColor= '';
+          item.placeholder= '면허번호'
+          break
       }
-    });
-    password[1].addEventListener('blur',function(){
-      if( password[0].value!==this.value && this.value!='' ){           // 비밀번호 확인
-        this.value = '';
-        this.style.backgroundColor = '#FADBD8';
-        this.placeholder ='비밀번호가 일치하지않습니다';
-        this.focus()
-        } else{
-          this.style.backgroundColor = '';
-          this.placeholder = '비밀번호확인'
-        }
-    });
+    })
+  });
+  //- 동물병원: 데이터 유효성 검증
+  document.querySelectorAll('.signUpForm')[1].querySelectorAll('input').forEach((item,i)=>{
+    item.addEventListener('blur',()=>{
+      switch(i){
+        case 1:                                                                 //- 동물병원: 사업자/법인번호
+          let num= item.value.replace(/[^0-9]/g,'');
+          if(num.length!==10 && num.length!==13 && num.length!==0){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '사업자/법인번호 10/13자리를 입력해주세요';
+            item.focus()
+          }else{
+            ws.send(JSON.stringify( {bizNumber:num} ));
+            item.value= num;
+            item.style.backgroundColor= '';
+            item.placeholder= '사업자/법인번호';
+          }
+          break
+        case 3:                                                                //- 동물병원: 전화번호
+          let tel= item.value.replace(/[^0-9]/g,'');
+          if((tel.length<7 || tel.length>11) && tel.length>0){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '병원전화번호를 입력해주세요';
+            item.focus()
+          }else{
+            ws.send(JSON.stringify( {bizTel:tel} ));
+            item.value= tel;
+            item.style.backgroundColor= '';
+            item.placeholder= '병원전화번호';
+          }
+          break
+        case 4:                                                                //- 동물병원: 이메일
+          if(regEmail.test(item.value)===false && item.value!==''){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '이메일을 입력해주세요';
+            item.focus()
+          }else{
+            item.style.backgroundColor= '';
+            item.placeholder= '이메일'
+          }
+          break
+/*        case 6:                                                                //- 동물병원: 휴대전화
+          let tel= item.value.replace(/[^0-9]/g,'');
+          if(regCell.test(tel)===false && tel.length>0){
+            item.value= '';
+            item.style.backgroundColor= '#FADBD8';
+            item.placeholder= '휴대전화를 입력해주세요';
+            item.focus()
+          }else{
+            item.style.backgroundColor= '';
+            item.placeholder= '휴대전화'
+          }
+          break */
+      }
+    })
+  });
+
+  //- 회원가입: 동물병원 찾기
+  document.querySelectorAll('.qualify2').forEach((item,i)=>{
+    item.addEventListener('click',()=>{
+      switch(i){
+        case 0:
+          document.querySelector('#clearWrap').classList.toggle('hide');
+          document.querySelector('#findHospital').classList.toggle('hide');
+          break
+      }
+    })
+  });
+
+  //- 병원찾기 팝업
+  document.querySelectorAll('.closeWrap, #clearWrap').forEach((item,i)=>{       //- 닫기버튼 또는 배경 클릭
+    item.addEventListener('click',()=>{
+      document.querySelector('#clearWrap').classList.toggle('hide');
+      document.querySelector('#findHospital').classList.toggle('hide')
+    })
+  });
+
+
 
 });

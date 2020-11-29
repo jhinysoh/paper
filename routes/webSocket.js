@@ -3,51 +3,44 @@ const {User} = require('./mongoDB');
 const {Hospital} = require('./mongoDB');
 
 const server = function(_server){
-	const wss = new wsModule.Server( {server:_server} );								//- 웹소켓 서버 생성
-	wss.on('connection', (ws,req)=>{													//- 클라이언트 접속시
+	const wss = new wsModule.Server( {server:_server} );													//- 웹소켓 서버 생성
+	wss.on('connection', (ws,req)=>{																							//- 클라이언트 접속시
 		let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;		//- 사용자이 ip 파악
 		console.log(ip+' connected');
-		ws.on('message', msg=>{															//- 메세지를 받았을때
-			let message = JSON.parse(msg);
-			if(message.findEmail){														//- 이메일 중복 확인
-				console.log(message);
-				User.findOne( {email:message.findEmail} ).exec()
-				.then(user=>{
-					if(user) ws.send(JSON.stringify( {'findEmail':true} ) );
-					else ws.send(JSON.stringify( {'findEmail':false} ))
+		ws.on('message', evt=>{																											//- 메세지를 받았을때
+			let msg= JSON.parse(evt);
+			console.log(msg);
+			if(msg.userEmail){																										//- 이메일 중복 확인
+				User.findOne( {email:msg.userEmail} ).exec().then(user=>{
+					if(user) ws.send(JSON.stringify( {userEmail:true} ) );
+					else ws.send(JSON.stringify( {userEmail:false} ))
 				})
 			}
-			if(message.findTel){														//- 휴대전화번호 중복 확인
-				User.findOne( {tel:message.findTel} ).exec()
-				.then(user=>{ 
-					if(user) ws.send(JSON.stringify( {findTel:true} ));
-					else ws.send(JSON.stringify( {findTel:false} ))
+			if(msg.userTel){																											//- 휴대전화번호 중복 확인
+				User.findOne( {tel:msg.userTel} ).exec().then(user=>{
+					if(user) ws.send(JSON.stringify( {userTel:true} ));
 				})
 			}
-			if(message.findNick){														//- 닉네임 중복 확인
-				User.findOne( {nick:message.findNick} ).exec()
-				.then(user=>{ 
-					if(user) ws.send(JSON.stringify( {findNick:true} ));
-					else ws.send(JSON.stringify( {findNick:false} ))
+			if(msg.userNick){																											//- 닉네임 중복 확인
+				User.findOne( {nick:msg.userNick} ).exec().then(user=>{
+					if(user) ws.send(JSON.stringify( {userNick:true} ));
 				})
 			}
-			if(message.findLicense){													//- 면허번호 중복 확인
-				User.findOne( {license:message.findLicence} ).exec()
-				.then(user=>{ 
-					if(user) ws.send(JSON.stringify( {findTel:true} ));
-					else ws.send(JSON.stringify( {findTel:false} ))
+			if(msg.userLicense){																									//- 면허번호 중복 확인
+				User.findOne( {license:msg.userLicense} ).exec().then(user=>{
+					console.log(user);
+					if(user) ws.send(JSON.stringify( {userLicense:true} ));
 				})
 			}
-			if(message.findBizNumber){													//- 사업자번호 중복 확인
-				User.findOne( {bizNumber:message.findBizNumber} ).exec()
-				.then(user=>{ 
+			if(msg.findBizNumber){																								//- 사업자번호 중복 확인
+				User.findOne( {bizNumber:msg.findBizNumber} ).exec().then(user=>{
 					if(user) ws.send(JSON.stringify( {findBizNumber:true} ));
 					else ws.send(JSON.stringify( {findBizNumber:false} ))
 				})
 			}
 		});
-		ws.on('error', error=>{ console.log(ip+' error on connection : '+error) });		//- 오류발생시
-		ws.on('close', ()=>{ console.log(ip+' connection closed') })					//- 접속종료시
+		ws.on('error', error=>{ console.log(ip+' error on connection : '+error) });	//- 오류발생시
+		ws.on('close', ()=>{ console.log(ip+' connection closed') })								//- 접속종료시
     })
 }
 
