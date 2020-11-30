@@ -47,8 +47,8 @@ html
 						input(type="submit",value="가입")
 						input(type="button",value="취소").goSignUp
 
-			//- 동물병원등록 폼
-			form(action="/hospitalsignup",method="post").signUpForm.hide
+			//- 동물병원등록 폼, 파일업로드를 위해 enctype 선언
+			form(action="/hospitalsignup",enctype="multipart/form-data",method="post").signUpForm.hide
 				fieldset
 					.form1
 						input(type="text",name="name",required,placeholder="동물병원명")
@@ -59,12 +59,18 @@ html
 					.form1
 						input(type="text",name="chief",placeholder="대표자명")
 						input(type="text",name="chiefTel",placeholder="대표자휴대전화")
-						input(type="text",name="",disabled,placeholder="사업자등록증사본").qualify1
-						.qualify2 업로드
-						input(type="number",name="",disabled,placeholder="개설신고필증사본").qualify1                        
-						.qualify2 업로드
-						input(type="number",name="",disabled,placeholder="동물병원로고").qualify1
-						.qualify2 업로드
+						.fileUp
+							input(type='text',disabled,placeholder='사업자등록증사본').qualify1
+							input(type="file",name="bizCert")
+						.qualify2 찾기
+						.fileUp
+							input(type='text',disabled,placeholder='개설신고필증사본').qualify1
+							input(type="file",name="hosCert")
+						.qualify2 찾기
+						.fileUp
+							input(type='text',disabled,placeholder='동물병원로고').qualify1
+							input(type="file",name="logo")
+						.qualify2 찾기
 					.form2
 						input(type="submit",value="등록")
 						input(type="button",value="취소").goSignUp

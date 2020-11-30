@@ -17,7 +17,7 @@ body {
 .white { color: white }
 .red { color: red }
 h1 { font-family: Kaushan Script }
-[type=text],[type=password],[type=number],[type=email] {
+[type=text],[type=password],[type=number],[type=email],[type=file] {
 	width:255px;
 	height: 16px;
 	border: none;
@@ -26,6 +26,13 @@ h1 { font-family: Kaushan Script }
 	text-align: center;
 	padding:10px;
 	margin-bottom:2px
+}
+[type=file] {
+	position: absolute;
+	left: 195px;
+	width: 100px;
+	z-index: 5;
+	opacity: 0
 }
 [type=text]:focus,[type=email]:focus,[type=password]:focus,[type=number]:focus {
     outline: none;
@@ -115,21 +122,26 @@ fieldset {
 	width: 110px;
 }
 .qualify1 {
-    width: 175px;
-    border-radius: 3px 0 0 3px
+  width: 175px;
+  border-radius: 3px 0 0 3px
 }
 .qualify2 {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 80px;
-		height: 36px;
-		cursor: pointer;
-		font-weight: bold;
-		color: grey;
-    background-color: #E5E8E8;
-    border-radius: 0 3px 3px 0
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 36px;
+	cursor: pointer;
+	font-weight: bold;
+	color: grey;
+  background-color: #E5E8E8;
+  border-radius: 0 3px 3px 0
 }
+.qualify2:hover {
+	background-color: #5D6D7E;
+	color: #F2F4F4
+}
+.fileUp { position: relative }
 
 /* 동물병원 찾기 */
 #clearWrap {

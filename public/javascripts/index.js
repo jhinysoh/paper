@@ -161,6 +161,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     })
   });
   //- 동물병원: 데이터 유효성 검증
+
   document.querySelectorAll('.signUpForm')[1].querySelectorAll('input').forEach((item,i)=>{
     item.addEventListener('blur',()=>{
       switch(i){
@@ -203,18 +204,19 @@ window.addEventListener('DOMContentLoaded', ()=>{
             item.placeholder= '이메일'
           }
           break
-/*        case 6:                                                                //- 동물병원: 휴대전화
-          let tel= item.value.replace(/[^0-9]/g,'');
-          if(regCell.test(tel)===false && tel.length>0){
+        case 6:                                                                //- 동물병원: 휴대전화
+          let ctel= item.value.replace(/[^0-9]/g,'');
+          if(regCell.test(ctel)===false && ctel.length>0){
             item.value= '';
             item.style.backgroundColor= '#FADBD8';
             item.placeholder= '휴대전화를 입력해주세요';
             item.focus()
           }else{
+            item.value= ctel;
             item.style.backgroundColor= '';
-            item.placeholder= '휴대전화'
+            item.placeholder= '대표자휴대전화'
           }
-          break */
+          break
       }
     })
   });
@@ -239,6 +241,17 @@ window.addEventListener('DOMContentLoaded', ()=>{
     })
   });
 
+  //- 파일업로드
+  //- 업로드 기본스타일은 투명레이어로 만들어 '찾기'버튼 위에 둠
+  document.querySelectorAll('.fileUp').forEach((item,i)=>{                      //- 찾기버튼 클릭
+    let fileUp= item.querySelector('input[type=file]');
+    fileUp.addEventListener('mouseover',()=> item.nextSibling.style= 'background-color:#5D6D7E; color:#F2F4F4' );
+    fileUp.addEventListener('mouseout',()=> item.nextSibling.style= '' );
+    fileUp.addEventListener('change',()=>{
+      let fileName= fileUp.value.split('\\');
+      fileUp.previousSibling.value= fileName[fileName.length-1]
+    })
+  });
 
 
 });
